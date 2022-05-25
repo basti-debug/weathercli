@@ -14,6 +14,7 @@ namespace weathercli
             {
                 DateTime dt = new DateTime(1970,1,1,0,0,0,0,DateTime.UtcNow);
                 dt = dt.AddSeconds( unix ).ToLocalTime();
+                return dt;
             }
         }
     }
