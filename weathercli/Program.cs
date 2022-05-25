@@ -10,7 +10,11 @@ namespace weathercli
     {
         static void Main(string[] args)
         {
-            //testbranch
+            public static DateTime unixconv(int unix)
+            {
+                DateTime dt = new DateTime(1970,1,1,0,0,0,0,DateTime.UtcNow);
+                dt = dt.AddSeconds( unix ).ToLocalTime();
+            }
         }
     }
 }
