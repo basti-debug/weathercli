@@ -5,18 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Toolkit.Uwp.Notifications;
 
-namespace weathercli
+namespace functions
 {
-    class notification
-    {
-      
-      
-      
-      
-      
-       
-       
-       
-       
+    public class notification
+    {     
+        public static void sendnotification(int type)
+        {
+            new ToastContentBuilder().AddText("test Type Number: "+ type).Show();
+        }
+           
     }
 }

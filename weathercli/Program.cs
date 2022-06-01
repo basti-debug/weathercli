@@ -1,9 +1,10 @@
-﻿using Microsoft.Toolkit.Uwp.Notifications;      
+﻿using Microsoft.Toolkit.Uwp.Notifications;
+using functions;
 
 namespace weathercli
 {
-    internal class Program
-    {
+    class Program
+    {  
         static void Main(string[] args)
         {
             /*public DateTime unixconv(int unix)
@@ -12,8 +13,8 @@ namespace weathercli
                 dt = dt.AddSeconds(unix).ToLocalTime();
                 return dt;
             }*/
-            new ToastContentBuilder().AddText("test").Show();
-
+            
+            functions.notification.sendnotification(1);
         }
     }
 }
