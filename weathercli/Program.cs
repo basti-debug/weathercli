@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Device.Location;
+using System.Globalization;
 
 namespace weathercli
 {
@@ -17,13 +18,10 @@ namespace weathercli
             //    dt = dt.AddSeconds( unix ).ToLocalTime();
             //    return dt;
             //}
-            
+            NumberFormatInfo point = new CultureInfo("en-US", false).NumberFormat;
+            point.NumberDecimalSeparator = ".";
             LocationRequest.Start();
-            while (LocationRequest.Latitude == 0)
-            {
-                ;
-            }
-            Console.WriteLine(LocationRequest.Latitude);
+            Console.WriteLine(LocationRequest.Latitude.ToString(point) + " " + LocationRequest.Longitude.ToString(point));
             Console.ReadKey();
         }
     }
