@@ -1,0 +1,13 @@
+C:\Users\basti\Source\Repos\basti-debug\weathercli\weathercli\bin\Debug\weathercli.exe.config
+C:\Users\basti\Source\Repos\basti-debug\weathercli\weathercli\bin\Debug\weathercli.exe
+C:\Users\basti\Source\Repos\basti-debug\weathercli\weathercli\bin\Debug\weathercli.pdb
+C:\Users\basti\Source\Repos\basti-debug\weathercli\weathercli\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.dll
+C:\Users\basti\Source\Repos\basti-debug\weathercli\weathercli\bin\Debug\System.ValueTuple.dll
+C:\Users\basti\Source\Repos\basti-debug\weathercli\weathercli\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.pdb
+C:\Users\basti\Source\Repos\basti-debug\weathercli\weathercli\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.xml
+C:\Users\basti\Source\Repos\basti-debug\weathercli\weathercli\bin\Debug\System.ValueTuple.xml
+C:\Users\basti\Source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weathercli.csproj.SuggestedBindingRedirects.cache
+C:\Users\basti\Source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weathercli.csproj.CoreCompileInputs.cache
+C:\Users\basti\Source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weathercli.csproj.CopyComplete
+C:\Users\basti\Source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weathercli.exe
+C:\Users\basti\Source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weathercli.pdb
