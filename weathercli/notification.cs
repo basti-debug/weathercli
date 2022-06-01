@@ -9,9 +9,26 @@ namespace functions
 {
     public class notification
     {     
-        public static void sendnotification(int type)
+        public static void sendnotification(int type, int wind, string direction, int temp, string state)
         {
-            new ToastContentBuilder().AddText("test Type Number: "+ type).Show();
+            if (type == 1)
+            {
+                string winddirection = "?";
+                if (direction == "n")
+                {
+                    winddirection = "north";
+                }
+                if (direction == "s")
+                {
+                    winddirection = "south";
+                }
+                new ToastContentBuilder()
+            .AddText("Hop on your sailboat", hintMaxLines: 1)
+            .AddText(state + " " + temp + " °C")
+            .AddText(wind +" kn" + " direction: " + winddirection)
+            .Show();
+            }
+            
         }
            
     }

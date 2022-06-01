@@ -14,7 +14,7 @@ namespace weathercli
                 return dt;
             }*/
             
-            functions.notification.sendnotification(1);
+            functions.notification.sendnotification(1,5,"s",20,"Rain");
         }
     }
 }
