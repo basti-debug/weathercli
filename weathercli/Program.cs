@@ -1,24 +1,54 @@
-﻿using Microsoft.Toolkit.Uwp.Notifications;
-using functions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Device.Location;
+using System.Globalization;
+using Checkboxx;
 
 namespace weathercli
 {
-    class Program
-    {  
+    internal class Program
+    {
         static void Main(string[] args)
         {
-            //public DateTime unixconv(int unix)
+            int auswahl = 0;
+            //unixtime
+            //public static DateTime unixconv(int unix)
             //{
-            //    DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Local);
-            //    dt = dt.AddSeconds(unix).ToLocalTime();
+            //    DateTime dt = new DateTime(1970,1,1,0,0,0,0,DateTime.UtcNow);
+            //    dt = dt.AddSeconds( unix ).ToLocalTime();
             //    return dt;
             //}
 
-            functions.notification.sendnotification(1, 30, "e", 10, "Cloudy", "Slough", "3am", "");
-            functions.notification.sendnotification(3,5,"s",20,"Rain","Hard","2pm","");
-            functions.notification.sendnotification(2, 5, "s", 20, "Sunny", "London", "8am","");
-            functions.notification.sendnotification(4, 15, "n", 10, "", "", "", "your Alerts are disabled");
+            //Numberformat
 
+            //Userinput
+            string checkboxHeadline = "What do you want to do?";
+            string[] opts = { "Get current weather", "set weather alert", "options"};
+            Checkbox startinput = new Checkbox(checkboxHeadline, opts);
+            var res1 = startinput.Select();
+            foreach (var checkboxReturn in res1)
+            {
+                auswahl = checkboxReturn.Index;
+            }
+            if(auswahl == 0)
+            {
+                weatherrequest.currentWeather();
+                LocationRequest.Start();
+                Console.WriteLine(LocationRequest.location);
+            }
+            else if(auswahl == 1)
+            {
+                weatherrequest.setAlert();
+            }
+            else if(auswahl == 2)
+            {
+                weatherrequest.options();
+            }
+            Console.ReadLine();
         }
     }
+    
 }
