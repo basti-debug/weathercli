@@ -23,8 +23,7 @@ namespace weathercli
             //}
 
             //Numberformat
-            NumberFormatInfo point = new CultureInfo("en-US", false).NumberFormat;
-            point.NumberDecimalSeparator = ".";
+
             //Userinput
             string checkboxHeadline = "What do you want to do?";
             string[] opts = { "Get current weather", "set weather alert", "options"};
@@ -37,6 +36,8 @@ namespace weathercli
             if(auswahl == 0)
             {
                 weatherrequest.currentWeather();
+                LocationRequest.Start();
+                Console.WriteLine(LocationRequest.location);
             }
             else if(auswahl == 1)
             {
@@ -46,6 +47,7 @@ namespace weathercli
             {
                 weatherrequest.options();
             }
+            Console.ReadLine();
         }
     }
     
