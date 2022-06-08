@@ -1,23 +1,51 @@
-﻿using Checkboxx;
-using System;
+﻿using System;
 using System.Device.Location;
+using Checkboxx;
+using System.Linq;
 using System.Globalization;
 using System.Threading.Tasks;
 using System.Threading;
-public class LocationRequest
-{
-    public static double Latitude;
-    public static double Longitude;
-    public static string location;
-    public static int auswahl2 = 0;
 
 
 
 
-    public static void Start()
+namespace weathercli
+{   
+    class CLocation
     {
+        public static double Latitude;
+        public static double Longitude;
+        public static string location;
+        public static int auswahl2 = 0;
+
+            GeoCoordinateWatcher watcher;
+
+            public void GetLocationEvent()
+            {
+                this.watcher = new GeoCoordinateWatcher();
+                this.watcher.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(watcher_PositionChanged);
+                bool started = this.watcher.TryStart(false, TimeSpan.FromMilliseconds(2000));
+                if (!started)
+                {
+                    Console.WriteLine("GeoCoordinateWatcher timed out on start.");
+                }
+            }
+
+            void watcher_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
+            {
+                PrintPosition(e.Position.Location.Latitude, e.Position.Location.Longitude);
+            }
+
+            void PrintPosition(double Latitude, double Longitude)
+            {
+                Console.WriteLine(Latitude +" "+ Longitude);
+            }
+        
+        public static void Start()
+        {
+
         string checkboxHeadline2 = "Where do you want to see the weather from?";
-        string[] opts2 = { "Device-GPS", "enter manually" };
+        string[] opts2 = { "Device-GPS - may take a while", "enter manually" };
         Checkbox startinput = new Checkbox(checkboxHeadline2, opts2);
         var res1 = startinput.Select();
         NumberFormatInfo point = new CultureInfo("en-US", false).NumberFormat;
@@ -29,32 +57,30 @@ public class LocationRequest
 
         if (auswahl2 == 0)
         {
-            GeoCoordinateWatcher watcher;
-            watcher = new GeoCoordinateWatcher();
 
-            watcher.PositionChanged += async (sender, e) =>
-            {
-                var coordinate = e.Position.Location;
-                Latitude = coordinate.Latitude;
-                Longitude = coordinate.Longitude;
-                while (Latitude == 0) {; }
-                //Console.WriteLine("Position has changed: Lat:" + Latitude + " Lon:" + Longitude);
-                location = Convert.ToString(Latitude, point) + " " + Convert.ToString(Longitude, point);
-                //Console.WriteLine(location);
-
-            };
-
-            // Begin listening for location updates.
-            watcher.Start();
-            Thread.Sleep(5000);
-
+          CLocation myLocation = new CLocation();
+                  myLocation.GetLocationEvent();
         }
-        if(auswahl2 == 1)
+        if (auswahl2 == 1)
         {
-            Console.WriteLine("Enter the location you want to know the weather from: (city,countrycode)");
-            location = Console.ReadLine();
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Enter the location you want to know the weather from: (city,countrycode)");
+                    location = Console.ReadLine();
+                    if (!location.Contains(",") || location.Any(c => char.IsDigit(c))) //Check if input contains a comma and doesnt contain a number
+                    { throw new Exception("Locations must contain comma, and not contain any numbers"); };
+                    break;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Ungültige Eingabe");
+                }
+            }
         }
-
-        //PRINTING EMPTY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    }
+        }
+            
+        }
+    
 }
