@@ -36,8 +36,8 @@ namespace weathercli
             if(auswahl == 0)
             {
                 weatherrequest.currentWeather();
-                LocationRequest.Start();
-                Console.WriteLine(LocationRequest.location);
+                CLocation myLocation = new CLocation();
+                  myLocation.GetLocationEvent();
             }
             else if(auswahl == 1)
             {
@@ -52,3 +52,4 @@ namespace weathercli
     }
     
 }
+    

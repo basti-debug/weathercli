@@ -1,60 +1,32 @@
-﻿using Checkboxx;
-using System;
+﻿using System;
 using System.Device.Location;
-using System.Globalization;
-using System.Threading.Tasks;
-using System.Threading;
-public class LocationRequest
-{
-    public static double Latitude;
-    public static double Longitude;
-    public static string location;
-    public static int auswahl2 = 0;
 
-
-
-
-    public static void Start()
-    {
-        string checkboxHeadline2 = "Where do you want to see the weather from?";
-        string[] opts2 = { "Device-GPS", "enter manually" };
-        Checkbox startinput = new Checkbox(checkboxHeadline2, opts2);
-        var res1 = startinput.Select();
-        NumberFormatInfo point = new CultureInfo("en-US", false).NumberFormat;
-        point.NumberDecimalSeparator = ".";
-        foreach (var checkboxReturn in res1)
-        {
-            auswahl2 = checkboxReturn.Index;
-        }
-
-        if (auswahl2 == 0)
+namespace weathercli
+{   
+    class CLocation
         {
             GeoCoordinateWatcher watcher;
-            watcher = new GeoCoordinateWatcher();
 
-            watcher.PositionChanged += async (sender, e) =>
+            public void GetLocationEvent()
             {
-                var coordinate = e.Position.Location;
-                Latitude = coordinate.Latitude;
-                Longitude = coordinate.Longitude;
-                while (Latitude == 0) {; }
-                //Console.WriteLine("Position has changed: Lat:" + Latitude + " Lon:" + Longitude);
-                location = Convert.ToString(Latitude, point) + " " + Convert.ToString(Longitude, point);
-                //Console.WriteLine(location);
+                this.watcher = new GeoCoordinateWatcher();
+                this.watcher.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(watcher_PositionChanged);
+                bool started = this.watcher.TryStart(false, TimeSpan.FromMilliseconds(2000));
+                if (!started)
+                {
+                    Console.WriteLine("GeoCoordinateWatcher timed out on start.");
+                }
+            }
 
-            };
+            void watcher_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
+            {
+                PrintPosition(e.Position.Location.Latitude, e.Position.Location.Longitude);
+            }
 
-            // Begin listening for location updates.
-            watcher.Start();
-            Thread.Sleep(5000);
-
+            void PrintPosition(double Latitude, double Longitude)
+            {
+                Console.WriteLine(Latitude +" "+ Longitude);
+            }
         }
-        if(auswahl2 == 1)
-        {
-            Console.WriteLine("Enter the location you want to know the weather from: (city,countrycode)");
-            location = Console.ReadLine();
-        }
-
-        //PRINTING EMPTY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    }
+    
 }
