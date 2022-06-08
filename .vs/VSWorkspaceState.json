@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\weathercli"
   ],
-  "SelectedNode": "\\weathercli.sln",
+  "SelectedNode": "\\weathercli\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
