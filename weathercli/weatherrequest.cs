@@ -23,7 +23,7 @@ namespace weathercli
 
         }
 
-        public static string returnvalue;
+        public static string returnvalue= "error";
         public static async void apirequest(int function)
         {
 
@@ -45,22 +45,7 @@ namespace weathercli
                 var body = await response.Content.ReadAsStringAsync();
                 var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(body);
 
-                if (function == 1) // Tempratur 
-                {
-                    returnvalue = Convert.ToString(dynamicresponse.response.ob.tempC);
-                }
-                if (function == 2) // Weather Status
-                {
-                    returnvalue = Convert.ToString(dynamicresponse.response.ob.weather);
-                }
-                if (function == 3) // Wind Speed
-                {
-                    returnvalue = Convert.ToString(dynamicresponse.response.ob.windSpeedKTS);
-                }
-                if (function == 4) // Wind Direction
-                {
-                    returnvalue = Convert.ToString(dynamicresponse.response.ob.windDir);
-                }
+                Console.WriteLine(dynamicresponse.response.ob.windSpeedKTS);
             }
         }
     }

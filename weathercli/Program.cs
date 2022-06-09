@@ -23,8 +23,10 @@ namespace weathercli
             //}
 
             //Numberformat
-            string weatherstatus = weatherrequest.apirequest(2);
-            if ()
+            weatherrequest.apirequest(2);
+            string weatherstatus = weatherrequest.returnvalue;
+            Console.WriteLine(weatherstatus);
+            
 
             //Userinput
             /*
