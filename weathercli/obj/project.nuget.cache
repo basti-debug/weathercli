@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "wfaBRmw96OiWCwNn6XAPz85v6kJG69MIkJvHR6d1RXRQF3hvmTUWkMAFx/yB3fGdwmowjt6E6pCfMcUE0biGWA==",
+  "dgSpecHash": "9ryNmmH4WX2BJ1iFjuqr+CSTTbjgsnQAWX/CRVUW8kbx8fekxWUKBuhgw8CJfDGXuAjDJ0utUHasHVg37sbB9g==",
   "success": true,
   "projectFilePath": "C:\\Users\\joelr\\Source\\Repos\\basti-debug\\weathercli\\weathercli\\weathercli.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\joelr\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\joelr\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512"
   ],
   "logs": []

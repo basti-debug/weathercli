@@ -35,7 +35,6 @@ namespace weathercli
             }
             if(auswahl == 0)
             {
-                weatherrequest.currentWeather();
                 CLocation.Start();
                 
             }
