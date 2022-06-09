@@ -10,3 +10,11 @@ C:\Users\basti\source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weatherc
 C:\Users\basti\source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weathercli.csproj.CopyComplete
 C:\Users\basti\source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weathercli.exe
 C:\Users\basti\source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weathercli.pdb
+C:\Users\joelr\Source\Repos\basti-debug\weathercli\weathercli\bin\Debug\weathercli.exe.config
+C:\Users\joelr\Source\Repos\basti-debug\weathercli\weathercli\bin\Debug\weathercli.exe
+C:\Users\joelr\Source\Repos\basti-debug\weathercli\weathercli\bin\Debug\weathercli.pdb
+C:\Users\joelr\Source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weathercli.csproj.AssemblyReference.cache
+C:\Users\joelr\Source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weathercli.csproj.SuggestedBindingRedirects.cache
+C:\Users\joelr\Source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weathercli.csproj.CoreCompileInputs.cache
+C:\Users\joelr\Source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weathercli.exe
+C:\Users\joelr\Source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weathercli.pdb

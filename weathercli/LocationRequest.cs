@@ -31,16 +31,19 @@ namespace weathercli
                 }
             }
 
-            void watcher_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
-            {
-                PrintPosition(e.Position.Location.Latitude, e.Position.Location.Longitude);
-            }
+        void watcher_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
+        {
+            NumberFormatInfo point = new CultureInfo("en-US", false).NumberFormat;
+            point.NumberDecimalSeparator = ".";
+            location = Convert.ToString(e.Position.Location.Latitude, point) + "," + Convert.ToString(e.Position.Location.Longitude, point);
+            PrintPosition();
+        }
 
-            void PrintPosition(double Latitude, double Longitude)
-            {
-                Console.WriteLine(Latitude +" "+ Longitude);
-            }
-        
+        void PrintPosition()
+        {
+            Console.WriteLine(location);
+        }
+
         public static void Start()
         {
 
