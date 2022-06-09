@@ -364,3 +364,5 @@ FodyWeavers.xsd
 
 # nervige Scheisse
 *.suo
+slnx.sqlite
+VSWorkspaceState.json
