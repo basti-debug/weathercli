@@ -13,12 +13,12 @@ namespace weathercli
 {   
     class CLocation
     {
-        public static double Latitude;
-        public static double Longitude;
         public static string location;
         public static int auswahl2 = 0;
+        private bool done = false;
 
-            GeoCoordinateWatcher watcher;
+
+        GeoCoordinateWatcher watcher;
 
             public void GetLocationEvent()
             {
@@ -31,16 +31,32 @@ namespace weathercli
                 }
             }
 
-            void watcher_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
+        void watcher_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
+        {
+            NumberFormatInfo point = new CultureInfo("en-US", false).NumberFormat;
+            point.NumberDecimalSeparator = ".";
+            location = Convert.ToString(e.Position.Location.Latitude, point) + "," + Convert.ToString(e.Position.Location.Longitude, point);
+            PrintPosition();
+            if (done == false)
             {
-                PrintPosition(e.Position.Location.Latitude, e.Position.Location.Longitude);
+                weatherrequest.currentWeather();
+                done = true;
             }
+        }
 
+        void PrintPosition()
+        {
+            //Console.WriteLine(location);
+        }
+
+<<<<<<< HEAD
+=======
             void PrintPosition(double Latitude, double Longitude)
             {
                 Console.WriteLine(Latitude +","+ Longitude);
             }
         
+>>>>>>> main
         public static void Start()
         {
 

@@ -361,3 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# nervige Scheisse
+*.suo
+slnx.sqlite
+VSWorkspaceState.json
