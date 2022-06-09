@@ -23,8 +23,11 @@ namespace weathercli
             //}
 
             //Numberformat
+            string weatherstatus = weatherrequest.apirequest(2);
+            if ()
 
             //Userinput
+            /*
             string checkboxHeadline = "What do you want to do?";
             string[] opts = { "Get current weather", "set weather alert", "options"};
             Checkbox startinput = new Checkbox(checkboxHeadline, opts);
@@ -46,6 +49,7 @@ namespace weathercli
             {
                 weatherrequest.options();
             }
+            */
             Console.ReadLine();
         }
     }

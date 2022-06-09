@@ -49,14 +49,6 @@ namespace weathercli
             //Console.WriteLine(location);
         }
 
-<<<<<<< HEAD
-=======
-            void PrintPosition(double Latitude, double Longitude)
-            {
-                Console.WriteLine(Latitude +","+ Longitude);
-            }
-        
->>>>>>> main
         public static void Start()
         {
 

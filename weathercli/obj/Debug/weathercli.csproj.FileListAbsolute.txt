@@ -1,9 +1,6 @@
 C:\Users\basti\source\Repos\basti-debug\weathercli\weathercli\bin\Debug\weathercli.exe.config
 C:\Users\basti\source\Repos\basti-debug\weathercli\weathercli\bin\Debug\weathercli.exe
 C:\Users\basti\source\Repos\basti-debug\weathercli\weathercli\bin\Debug\weathercli.pdb
-C:\Users\basti\source\Repos\basti-debug\weathercli\weathercli\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.dll
-C:\Users\basti\source\Repos\basti-debug\weathercli\weathercli\bin\Debug\System.ValueTuple.dll
-C:\Users\basti\source\Repos\basti-debug\weathercli\weathercli\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.pdb
 C:\Users\basti\source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weathercli.csproj.AssemblyReference.cache
 C:\Users\basti\source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weathercli.csproj.SuggestedBindingRedirects.cache
 C:\Users\basti\source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weathercli.csproj.CoreCompileInputs.cache
@@ -20,3 +17,4 @@ C:\Users\joelr\Source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weatherc
 C:\Users\joelr\Source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weathercli.pdb
 C:\Users\joelr\Source\Repos\basti-debug\weathercli\weathercli\bin\Debug\Newtonsoft.Json.dll
 C:\Users\joelr\Source\Repos\basti-debug\weathercli\weathercli\obj\Debug\weathercli.csproj.CopyComplete
+C:\Users\basti\Source\Repos\basti-debug\weathercli\weathercli\bin\Debug\Newtonsoft.Json.dll

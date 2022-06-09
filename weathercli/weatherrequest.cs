@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace weathercli
 {
-    internal class weatherrequest
+    class weatherrequest
     {
         public static void currentWeather()
         {
-            apirequest();
+            
         }
         public static void setAlert()
         {
@@ -22,8 +22,11 @@ namespace weathercli
         {
 
         }
-        public static async void apirequest()
+
+        public static string returnvalue;
+        public static async void apirequest(int function)
         {
+
             string url = "https://aerisweather1.p.rapidapi.com/observations/" + CLocation.location;
             var client = new HttpClient();
             var request = new HttpRequestMessage
@@ -41,9 +44,23 @@ namespace weathercli
                 response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
                 var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(body);
-                Console.WriteLine(dynamicresponse.response.ob.tempC);
 
-
+                if (function == 1) // Tempratur 
+                {
+                    returnvalue = Convert.ToString(dynamicresponse.response.ob.tempC);
+                }
+                if (function == 2) // Weather Status
+                {
+                    returnvalue = Convert.ToString(dynamicresponse.response.ob.weather);
+                }
+                if (function == 3) // Wind Speed
+                {
+                    returnvalue = Convert.ToString(dynamicresponse.response.ob.windSpeedKTS);
+                }
+                if (function == 4) // Wind Direction
+                {
+                    returnvalue = Convert.ToString(dynamicresponse.response.ob.windDir);
+                }
             }
         }
     }
