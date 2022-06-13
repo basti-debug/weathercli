@@ -23,9 +23,8 @@ namespace weathercli
             //}
 
             //Numberformat
-            weatherrequest.apirequest(2);
-            string weatherstatus = weatherrequest.returnvalue;
-            Console.WriteLine(weatherstatus);
+            CLocation myLocation = new CLocation();
+            myLocation.GetLocationEvent();
             
 
             //Userinput

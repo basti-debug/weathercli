@@ -46,7 +46,7 @@ namespace weathercli
 
         void PrintPosition()
         {
-            //Console.WriteLine(location);
+            weatherrequest.apirequest(1,location);
         }
 
         public static void Start()

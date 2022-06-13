@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace weathercli
 {
-    class weatherrequest
+    internal class weatherrequest
     {
+        static int doublestop = 0;
+
         public static void currentWeather()
         {
             
@@ -24,10 +26,10 @@ namespace weathercli
         }
 
         public static string returnvalue= "error";
-        public static async void apirequest(int function)
+        
+        public static async void apirequest(int functions, string location)
         {
-
-            string url = "https://aerisweather1.p.rapidapi.com/observations/" + CLocation.location;
+            string url = "https://aerisweather1.p.rapidapi.com/observations/" + location;
             var client = new HttpClient();
             var request = new HttpRequestMessage
             {
@@ -45,7 +47,18 @@ namespace weathercli
                 var body = await response.Content.ReadAsStringAsync();
                 var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(body);
 
-                Console.WriteLine(dynamicresponse.response.ob.windSpeedKTS);
+                if (doublestop == 0)
+                {
+                    if (functions == 1)
+                    {
+
+                    Console.WriteLine("its " + dynamicresponse.response.ob.tempC + "°C " + dynamicresponse.response.ob.weather +", outside in "+dynamicresponse.response.place.city);
+                    doublestop ++;
+                        Task.Delay(499);
+                    }
+                }
+
+                
             }
         }
     }
