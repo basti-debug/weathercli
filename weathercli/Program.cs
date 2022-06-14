@@ -13,6 +13,7 @@ namespace weathercli
     {
         static void Main(string[] args)
         {
+           Console.WriteLine("weathercli V1");
             int auswahl = 0;
             //unixtime
             //public static DateTime unixconv(int unix)
