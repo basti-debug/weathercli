@@ -48,7 +48,14 @@ namespace weathercli
         {
             weatherrequest.apirequest(1,location);
         }
+<<<<<<< HEAD
 
+=======
+            void PrintPosition(double Latitude, double Longitude)
+            {
+                Console.WriteLine(Latitude +","+ Longitude);
+            }
+>>>>>>> origin/weatherCache
         public static void Start()
         {
 

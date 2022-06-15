@@ -48,7 +48,11 @@
     <Compile Include="LocationRequest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="unix.cs" />
+=======
+    <Compile Include="weatherCache.cs" />
+>>>>>>> origin/weatherCache
     <Compile Include="weatherrequest.cs" />
   </ItemGroup>
   <ItemGroup>

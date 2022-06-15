@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,22 @@ namespace weathercli
             Console.SetWindowSize(45,30);
             Console.WriteLine("weathercli V1");
             int auswahl = 0;
+<<<<<<< HEAD
+=======
+
+            if(!Directory.Exists(@"C:\Users\joelr\Documents\weathercli"))
+            {
+                Directory.CreateDirectory(@"C:\Users\joelr\Documents\weathercli");
+            }
+            
+            //unixtime
+            //public static DateTime unixconv(int unix)
+            //{
+            //    DateTime dt = new DateTime(1970,1,1,0,0,0,0,DateTime.UtcNow);
+            //    dt = dt.AddSeconds( unix ).ToLocalTime();
+            //    return dt;
+            //}
+>>>>>>> origin/weatherCache
 
             // Console.WriteLine(unix.convertunix(1655276264)); -- unix converter 
 
