@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,12 @@ namespace weathercli
         static void Main(string[] args)
         {
             int auswahl = 0;
+
+            if(!Directory.Exists(@"C:\Users\joelr\Documents\weathercli"))
+            {
+                Directory.CreateDirectory(@"C:\Users\joelr\Documents\weathercli");
+            }
+            
             //unixtime
             //public static DateTime unixconv(int unix)
             //{
