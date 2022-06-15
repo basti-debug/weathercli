@@ -17,18 +17,18 @@ namespace weathercli
         }
        public static string readCache()
         {
-            string weather = File.ReadAllText(@"C:\Users\joelr\Documents\weathercli\weather.json");
+            string weather = File.ReadAllText(@"C:\Users\basti\Documents\weathercli\weather.json");
             //var weatherser = JsonConvert.DeserializeObject<dynamic>(weather);
             Console.WriteLine(weather);
             return weather;
         }
        public static void writeCache(string Datei)
         {
-            File.WriteAllText(@"C:\Users\joelr\Documents\weathercli\weather.json", Datei);
+            File.WriteAllText(@"C:\Users\basti\Documents\weathercli\weather.json", Datei);
         }
         public static bool weatherAvailable()
         {
-            if(File.Exists(@"C:\Users\joelr\Documents\weather.json"))
+            if(File.Exists(@"C:\Users\basti\Documents\weather.json"))
             {
                 return true;
             }

@@ -1,11 +1,11 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Device.Location;
 using System.Globalization;
+using System.IO;
 using Checkboxx;
 
 namespace weathercli
@@ -14,32 +14,22 @@ namespace weathercli
     {
         static void Main(string[] args)
         {
-            Console.SetWindowSize(45,30);
+            Console.SetWindowSize(48, 30);
             Console.WriteLine("weathercli V1");
             int auswahl = 0;
-<<<<<<< HEAD
-=======
 
-            if(!Directory.Exists(@"C:\Users\joelr\Documents\weathercli"))
+            if (!Directory.Exists(@"C:\Users\basti\Documents\weathercli"))
             {
-                Directory.CreateDirectory(@"C:\Users\joelr\Documents\weathercli");
+                Directory.CreateDirectory(@"C:\Users\basti\Documents\weathercli");
             }
-            
-            //unixtime
-            //public static DateTime unixconv(int unix)
-            //{
-            //    DateTime dt = new DateTime(1970,1,1,0,0,0,0,DateTime.UtcNow);
-            //    dt = dt.AddSeconds( unix ).ToLocalTime();
-            //    return dt;
-            //}
->>>>>>> origin/weatherCache
+
 
             // Console.WriteLine(unix.convertunix(1655276264)); -- unix converter 
 
             //Api Request 
 
-            //CLocation myLocation = new CLocation();
-            //myLocation.GetLocationEvent();
+            CLocation myLocation = new CLocation();
+            myLocation.GetLocationEvent();
 
 
             //Userinput
@@ -69,6 +59,5 @@ namespace weathercli
             Console.ReadLine();
         }
     }
-    
+
 }
-    

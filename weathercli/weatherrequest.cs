@@ -28,39 +28,42 @@ namespace weathercli
         }
 
         public static string returnvalue= "error";
-        
+
         public static async void apirequest(int functions, string location)
         {
-<<<<<<< HEAD
-            
-            string url = "https://aerisweather1.p.rapidapi.com/observations/" + location;
-            var client = new HttpClient();
-            var request = new HttpRequestMessage
+            if (weatherCache.weatherOld() == true)
             {
-                Method = HttpMethod.Get,
-                RequestUri = new Uri(url),
-                Headers =
+
+                string url = "https://aerisweather1.p.rapidapi.com/observations/" + location;
+                var client = new HttpClient();
+                var request = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Get,
+                    RequestUri = new Uri(url),
+                    Headers =
     {
         { "X-RapidAPI-Key", "669084b3c7msh56151ee8082858fp1b9eddjsnd5fd23b18432" },
         { "X-RapidAPI-Host", "aerisweather1.p.rapidapi.com" },
     },
-            };
-            using (var response = await client.SendAsync(request))
-            {
-                response.EnsureSuccessStatusCode();
-                var body = await response.Content.ReadAsStringAsync();
-                var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(body);
-                
-                if (doublestop == 0)
+                };
+                using (var response = await client.SendAsync(request))
                 {
-                    doublestop ++;
-                    if (functions == 1)
+                    response.EnsureSuccessStatusCode();
+                    var body = await response.Content.ReadAsStringAsync();
+                    var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(body);
+                    weatherCache.writeCache(dynamicresponse.ToString());
+
+
+                    if (doublestop == 0)
                     {
-                        Console.WriteLine("The current weather: ");
-                        if(dynamicresponse.response.ob.weather == "Mostly Cloudy")
+                        doublestop++;
+                        if (functions == 1)
                         {
-                            Console.ForegroundColor = ConsoleColor.Gray;
-                            Console.WriteLine(@"      
+                            Console.WriteLine("The current weather: ");
+                            if (dynamicresponse.response.ob.weather == "Mostly Cloudy")
+                            {
+                                Console.ForegroundColor = ConsoleColor.Gray;
+                                Console.WriteLine(@"      
         .-~~~-.
 .- ~ ~-(       )_ 
 /                 ~ -.
@@ -68,12 +71,12 @@ namespace weathercli
 \                       .
   ~- . _____________.-~)
                                 ");
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
-                        if(dynamicresponse.response.ob.weather == "Mostly Sunny")
-                        {
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine(@"      
+                                Console.ForegroundColor = ConsoleColor.White;
+                            }
+                            if (dynamicresponse.response.ob.weather == "Mostly Sunny")
+                            {
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.WriteLine(@"      
       ;   :   ;
    .   \_,!,_/   ,
     `.,'     `.,'
@@ -83,40 +86,17 @@ namespace weathercli
     ,'`._   _.'`.
    '   / `!` \   `
       ;   :   ;                                 ");
-                            Console.ForegroundColor = ConsoleColor.White;
+                                Console.ForegroundColor = ConsoleColor.White;
+                            }
+                            Console.WriteLine();
+                            Console.WriteLine("its " + dynamicresponse.response.ob.weather + " at " + dynamicresponse.response.ob.tempC +"°C in " + dynamicresponse.response.place.city);
+
+
                         }
-                        Console.WriteLine();
-                        Console.WriteLine("its " + dynamicresponse.response.ob.weather + " at " + dynamicresponse.response.ob.tempC +"°C in " + dynamicresponse.response.place.city);
-                    
-                
                     }
                 }
 
-                
-=======
-            if(weatherCache.weatherOld() == true)
-            {
-                string url = "https://aerisweather1.p.rapidapi.com/observations/" + CLocation.location;
-                var client = new HttpClient();
-                var request = new HttpRequestMessage
-                {
-                    Method = HttpMethod.Get,
-                    RequestUri = new Uri(url),
-                    Headers = {
-                           { "X-RapidAPI-Key", "669084b3c7msh56151ee8082858fp1b9eddjsnd5fd23b18432" },
-                           { "X-RapidAPI-Host", "aerisweather1.p.rapidapi.com" }, },
-                };
-                using (var response = await client.SendAsync(request))
-                {
-                    response.EnsureSuccessStatusCode();
-                    var body = await response.Content.ReadAsStringAsync();
-                    var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(body);
-                    weatherCache.writeCache(dynamicresponse.ToString());
-                }
-                Console.WriteLine(weatherCache.readCache());
->>>>>>> origin/weatherCache
             }
-            
         }
     }
 }
