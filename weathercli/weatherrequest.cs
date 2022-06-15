@@ -56,6 +56,7 @@ namespace weathercli
                         Console.WriteLine("The current weather: ");
                         if(dynamicresponse.response.ob.weather == "Mostly Cloudy")
                         {
+                            Console.ForegroundColor = ConsoleColor.Gray;
                             Console.WriteLine(@"      
         .-~~~-.
 .- ~ ~-(       )_ 
@@ -64,6 +65,7 @@ namespace weathercli
 \                       .
   ~- . _____________.-~)
                                 ");
+                            Console.ForegroundColor = ConsoleColor.White;
                         }
                         if(dynamicresponse.response.ob.weather == "Mostly Sunny")
                         {

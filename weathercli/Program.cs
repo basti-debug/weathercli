@@ -13,20 +13,17 @@ namespace weathercli
     {
         static void Main(string[] args)
         {
-           Console.WriteLine("weathercli V1");
+            Console.SetWindowSize(45,30);
+            Console.WriteLine("weathercli V1");
             int auswahl = 0;
-            //unixtime
-            //public static DateTime unixconv(int unix)
-            //{
-            //    DateTime dt = new DateTime(1970,1,1,0,0,0,0,DateTime.UtcNow);
-            //    dt = dt.AddSeconds( unix ).ToLocalTime();
-            //    return dt;
-            //}
 
-            //Numberformat
-            CLocation myLocation = new CLocation();
-            myLocation.GetLocationEvent();
-            
+            // Console.WriteLine(unix.convertunix(1655276264)); -- unix converter 
+
+            //Api Request 
+
+            //CLocation myLocation = new CLocation();
+            //myLocation.GetLocationEvent();
+
 
             //Userinput
             /*
