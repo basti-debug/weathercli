@@ -23,7 +23,7 @@ namespace weathercli
             DateTime currentTime = DateTime.Now;
             if(Convert.ToInt16(currentTime.Subtract(weathertime).TotalMinutes) >= 20)
             {
-                Debug.WriteLine("WEATHERAGE: " + Convert.ToInt16(currentTime.Subtract(weathertime).TotalMinutes));
+                Debug.WriteLine("WEATHERAGE: " + Convert.ToInt16(currentTime.Subtract(weathertime).TotalMinutes);
                 Debug.WriteLine("WEATHER IS OLD");
                 return true;
             }
@@ -35,20 +35,23 @@ namespace weathercli
         }
        public static string readCache()
         {
-            string weather = File.ReadAllText(@"C:\Users\joelr\Documents\weathercli\weather.json");
+            string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli";
+            string weather = File.ReadAllText(path);
             //var weatherser = JsonConvert.DeserializeObject<dynamic>(weather);
             Debug.WriteLine("READING CACHE");
             return weather;
         }
        public static void writeCache(string Datei)
         {
-            File.WriteAllText(@"C:\Users\joelr\Documents\weathercli\weather.json", Datei);
+            string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli";
+            File.WriteAllText(path, Datei);
             Debug.WriteLine("WRITING CACHE");
         }
         public static bool weatherAvailable()
         {
+            string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli";
             Debug.WriteLine("CHECKING IF WEATHER AVAILABLE");
-            if(File.Exists(@"C:\Users\joelr\Documents\weathercli\weather.json"))
+            if(File.Exists(path))
             {
                 Debug.WriteLine("--WEATHER IS AVAILABLE");
                 return true;

@@ -19,10 +19,12 @@ namespace weathercli
             Console.SetWindowSize(48, 30);
             Console.WriteLine("weathercli V1");
             int auswahl = 0;
+            string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli";
+            Debug.WriteLine(path);
 
-            if (!Directory.Exists(@"C:\Users\joelr\Documents\weathercli"))
+            if (!Directory.Exists(path))
             {
-                Directory.CreateDirectory(@"C:\Users\joelr\Documents\weathercli");
+                Directory.CreateDirectory(path);
             }
 
 
