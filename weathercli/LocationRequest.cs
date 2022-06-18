@@ -68,6 +68,7 @@ namespace weathercli
 
           CLocation myLocation = new CLocation();
                   myLocation.GetLocationEvent();
+                Console.WriteLine(CLocation.location);
         }
         if (auswahl2 == 1)
         {

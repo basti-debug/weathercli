@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\basti\\Source\\Repos\\basti-debug\\weathercli\\weathercli\\weathercli.csproj": {}
+    "C:\\Users\\joelr\\Source\\Repos\\basti-debug\\weathercli\\weathercli\\weathercli.csproj": {}
   },
   "projects": {
-    "C:\\Users\\basti\\Source\\Repos\\basti-debug\\weathercli\\weathercli\\weathercli.csproj": {
+    "C:\\Users\\joelr\\Source\\Repos\\basti-debug\\weathercli\\weathercli\\weathercli.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\basti\\Source\\Repos\\basti-debug\\weathercli\\weathercli\\weathercli.csproj",
+        "projectUniqueName": "C:\\Users\\joelr\\Source\\Repos\\basti-debug\\weathercli\\weathercli\\weathercli.csproj",
         "projectName": "weathercli",
-        "projectPath": "C:\\Users\\basti\\Source\\Repos\\basti-debug\\weathercli\\weathercli\\weathercli.csproj",
-        "packagesPath": "C:\\Users\\basti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\basti\\Source\\Repos\\basti-debug\\weathercli\\weathercli\\obj\\",
+        "projectPath": "C:\\Users\\joelr\\Source\\Repos\\basti-debug\\weathercli\\weathercli\\weathercli.csproj",
+        "packagesPath": "C:\\Users\\joelr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\joelr\\Source\\Repos\\basti-debug\\weathercli\\weathercli\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "C:\\Users\\basti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\joelr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

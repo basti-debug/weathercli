@@ -24,4 +24,4 @@ the current weather will be displayed with a little forecast in ascii text art s
   
   
   For more information look into the project here: 
-  https://github.com/users/basti-debug/projects/1
+  https://github.com/users/joelr-debug/projects/1
