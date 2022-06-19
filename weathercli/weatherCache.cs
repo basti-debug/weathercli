@@ -18,7 +18,7 @@ namespace weathercli
                 Debug.WriteLine("WEATHER WAS NOT AVAILABLE AND GOT OUTPUTTED AS OLD");
                 return true;
             }
-            int weatherdate = JsonConvert.DeserializeObject<dynamic>(readCache()).response.ob.timestamp;
+            int weatherdate = JsonConvert.DeserializeObject<dynamic>(weatherCache.readCache()).response.ob.timestamp;
             DateTime weathertime = unix.convertunix(weatherdate);
             DateTime currentTime = DateTime.Now;
             if(Convert.ToInt16(currentTime.Subtract(weathertime).TotalMinutes) >= 20)

@@ -84,7 +84,7 @@ namespace weathercli
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Ungültige Eingabe");
+                    Console.WriteLine("invalid entry");
                 }
             }
         }

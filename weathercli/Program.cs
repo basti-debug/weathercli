@@ -18,7 +18,6 @@ namespace weathercli
             Debug.WriteLine("_-_-_-_-_-_-_-_-_-_-_-_-_-_-STARTING_-_-_-_-_-_-_-_-_-_-_-_-_-_-");
             Console.SetWindowSize(48, 30);
             Console.WriteLine("weathercli V1");
-            int auswahl = 0;
             string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli";
             Debug.WriteLine(path);
 
@@ -27,39 +26,11 @@ namespace weathercli
                 Directory.CreateDirectory(path);
             }
 
-
-            // Console.WriteLine(unix.convertunix(1655276264)); -- unix converter 
-
-            //Api Request 
-
-            CLocation myLocation = new CLocation();
-            myLocation.GetLocationEvent();
-
-
+            Console.ReadLine();
             //Userinput
-            Console.ReadLine();
-            string checkboxHeadline = "What do you want to do?";
-            string[] opts = { "Get current weather", "set weather alert", "options"};
-            Checkbox startinput = new Checkbox(checkboxHeadline, opts);
-            var res1 = startinput.Select();
-            foreach (var checkboxReturn in res1)
-            {
-                auswahl = checkboxReturn.Index;
-            }
-            if(auswahl == 0)
-            {
-                CLocation.Start();
-                
-            }
-            else if(auswahl == 1)
-            {
-                weatherrequest.setAlert();
-            }
-            else if(auswahl == 2)
-            {
-                weatherrequest.options();
-            }
-            Console.ReadLine();
+            userinput.startscreen();
+
+            
         }
     }
 
