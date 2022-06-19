@@ -7,6 +7,7 @@ using System.Device.Location;
 using System.Globalization;
 using System.IO;
 using Checkboxx;
+using System.Diagnostics;
 
 namespace weathercli
 {
@@ -14,13 +15,16 @@ namespace weathercli
     {
         static void Main(string[] args)
         {
+            Debug.WriteLine("_-_-_-_-_-_-_-_-_-_-_-_-_-_-STARTING_-_-_-_-_-_-_-_-_-_-_-_-_-_-");
             Console.SetWindowSize(48, 30);
             Console.WriteLine("weathercli V1");
             int auswahl = 0;
+            string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli";
+            Debug.WriteLine(path);
 
-            if (!Directory.Exists(@"C:\Users\basti\Documents\weathercli"))
+            if (!Directory.Exists(path))
             {
-                Directory.CreateDirectory(@"C:\Users\basti\Documents\weathercli");
+                Directory.CreateDirectory(path);
             }
 
 
@@ -33,7 +37,7 @@ namespace weathercli
 
 
             //Userinput
-            /*
+            Console.ReadLine();
             string checkboxHeadline = "What do you want to do?";
             string[] opts = { "Get current weather", "set weather alert", "options"};
             Checkbox startinput = new Checkbox(checkboxHeadline, opts);
@@ -55,7 +59,6 @@ namespace weathercli
             {
                 weatherrequest.options();
             }
-            */
             Console.ReadLine();
         }
     }

@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\weathercli",
+    "\\weathercli\\Properties"
   ],
   "SelectedNode": "\\weathercli.sln",
   "PreviewInSolutionExplorer": false
