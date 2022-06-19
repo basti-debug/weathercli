@@ -28,72 +28,68 @@ namespace weathercli
 
         public static string returnvalue = "error";
 
-        public static async void apirequest(int functions, string location)
+        public static async void apirequest(int function, string location)
         {
-            if (weatherCache.weatherOld() == true)
+            if(function == 1)
             {
-                Debug.WriteLine("-----------------------GETTING NEW WEATHER FROM API-----------------------");
-                string url = "https://aerisweather1.p.rapidapi.com/observations/" + location;
-                var client = new HttpClient();
-                var request = new HttpRequestMessage
+                if (weatherCache.weatherOld() == true)
                 {
-                    Method = HttpMethod.Get,
-                    RequestUri = new Uri(url),
-                    Headers =
+                    Debug.WriteLine("-----------------------GETTING NEW WEATHER FROM API-----------------------");
+                    string url = "https://aerisweather1.p.rapidapi.com/observations/" + location;
+                    var client = new HttpClient();
+                    var request = new HttpRequestMessage
+                    {
+                        Method = HttpMethod.Get,
+                        RequestUri = new Uri(url),
+                        Headers =
     {
         { "X-RapidAPI-Key", "669084b3c7msh56151ee8082858fp1b9eddjsnd5fd23b18432" },
         { "X-RapidAPI-Host", "aerisweather1.p.rapidapi.com" },
     },
-                };
-                using (var response = await client.SendAsync(request))
-                {
-                    response.EnsureSuccessStatusCode();
-                    var body = await response.Content.ReadAsStringAsync();
-                    var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(body);
-                    Debug.WriteLine("GOT WEATHER FROM API");
-                    weatherCache.writeCache(dynamicresponse.ToString());
-
-
-                    if (doublestop == 0)
+                    };
+                    using (var response = await client.SendAsync(request))
                     {
-                        doublestop++;
-                        if (functions == 1)
+                        response.EnsureSuccessStatusCode();
+                        var body = await response.Content.ReadAsStringAsync();
+                        var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(body);
+                        Debug.WriteLine("GOT WEATHER FROM API");
+                        weatherCache.writeCache(dynamicresponse.ToString());
+
+
+                        if (doublestop == 0)
                         {
-                            Console.WriteLine("The current weather: ");
-
-                            weatherstatus.getvisu(Convert.ToString(dynamicresponse.response.ob.weather));
+                            doublestop++;
                             
-                            Console.WriteLine();
-                            Console.WriteLine("its " + dynamicresponse.response.ob.weather + " at " + dynamicresponse.response.ob.tempC + "°C in " + dynamicresponse.response.place.city);
+                                Console.WriteLine("The current weather: ");
 
+                                weatherstatus.getvisu(Convert.ToString(dynamicresponse.response.ob.weather));
 
-                             
+                                Console.WriteLine();
+                                Console.WriteLine("its " + dynamicresponse.response.ob.weather + " at " + dynamicresponse.response.ob.tempC + "°C in " + dynamicresponse.response.place.city);
 
                         }
                     }
+
                 }
-
-            }
-            else if (weatherCache.weatherOld() != true)
-            {
-                var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(weatherCache.readCache());
-                Debug.WriteLine("USING OLD WEATHER");
-                if (doublestop == 0)
+                else if (weatherCache.weatherOld() != true)
                 {
-                    doublestop++;
-                    if (functions == 1)
+                    var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(weatherCache.readCache());
+                    Debug.WriteLine("USING OLD WEATHER");
+                    if (doublestop == 0)
                     {
-                        Console.WriteLine("The current weather: ");
+                        doublestop++;
                         
-                        weatherstatus.getvisu(dynamicresponse.response.ob.weather);
+                            Console.WriteLine("The current weather: ");
 
-                        Console.WriteLine();
-                        Console.WriteLine("its " + dynamicresponse.response.ob.weather + " at " + dynamicresponse.response.ob.tempC + "°C in " + dynamicresponse.response.place.city);
+                            weatherstatus.getvisu(Convert.ToString(dynamicresponse.response.ob.weather));
 
+                            Console.WriteLine();
+                            Console.WriteLine("its " + dynamicresponse.response.ob.weather + " at " + dynamicresponse.response.ob.tempC + "°C in " + dynamicresponse.response.place.city);
 
                     }
                 }
             }
+
 
         }
     }

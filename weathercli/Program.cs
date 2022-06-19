@@ -16,49 +16,36 @@ namespace weathercli
         static void Main(string[] args)
         {
             Debug.WriteLine("_-_-_-_-_-_-_-_-_-_-_-_-_-_-STARTING_-_-_-_-_-_-_-_-_-_-_-_-_-_-");
+
+
             Console.SetWindowSize(48, 30);
             Console.WriteLine("weathercli V1");
-            int auswahl = 0;
+
+
             string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli";
             Debug.WriteLine(path);
 
+            // creating path for caching
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
 
 
-            // Console.WriteLine(unix.convertunix(1655276264)); -- unix converter 
+            // get network info
 
-            //Api Request 
+            networkinfo.getnetinfo();
+
+            // get current user location 
+            
 
             CLocation myLocation = new CLocation();
-            myLocation.GetLocationEvent();
+            string location = myLocation.getlocation();
 
+            Console.WriteLine("");
 
-            //Userinput
-            Console.ReadLine();
-            string checkboxHeadline = "What do you want to do?";
-            string[] opts = { "Get current weather", "set weather alert", "options"};
-            Checkbox startinput = new Checkbox(checkboxHeadline, opts);
-            var res1 = startinput.Select();
-            foreach (var checkboxReturn in res1)
-            {
-                auswahl = checkboxReturn.Index;
-            }
-            if(auswahl == 0)
-            {
-                CLocation.Start();
-                
-            }
-            else if(auswahl == 1)
-            {
-                weatherrequest.setAlert();
-            }
-            else if(auswahl == 2)
-            {
-                weatherrequest.options();
-            }
+            weatherrequest.apirequest(1, location);          
+
             Console.ReadLine();
         }
     }

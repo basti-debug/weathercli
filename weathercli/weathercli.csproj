@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Checkbox.cs" />
     <Compile Include="LocationRequest.cs" />
+    <Compile Include="networkinfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="unix.cs" />
