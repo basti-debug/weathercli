@@ -60,37 +60,14 @@ namespace weathercli
                         if (functions == 1)
                         {
                             Console.WriteLine("The current weather: ");
-                            if (dynamicresponse.response.ob.weather == "Mostly Cloudy")
-                            {
-                                Console.ForegroundColor = ConsoleColor.Gray;
-                                Console.WriteLine(@"      
-        .-~~~-.
-.- ~ ~-(       )_ 
-/                 ~ -.
-|                      \
-\                       .
-  ~- . _____________.-~)
-                                ");
-                                Console.ForegroundColor = ConsoleColor.White;
-                            }
-                            if (dynamicresponse.response.ob.weather == "Mostly Sunny")
-                            {
-                                Console.ForegroundColor = ConsoleColor.Yellow;
-                                Console.WriteLine(@"      
-      ;   :   ;
-   .   \_,!,_/   ,
-    `.,'     `.,'
-     /         \
-~ -- :         : -- ~
-     \         /
-    ,'`._   _.'`.
-   '   / `!` \   `
-      ;   :   ;                                 ");
-                                Console.ForegroundColor = ConsoleColor.White;
-                            }
+
+                            weatherstatus.getvisu(Convert.ToString(dynamicresponse.response.ob.weather));
+                            
                             Console.WriteLine();
                             Console.WriteLine("its " + dynamicresponse.response.ob.weather + " at " + dynamicresponse.response.ob.tempC + "°C in " + dynamicresponse.response.place.city);
 
+
+                             
 
                         }
                     }
@@ -107,34 +84,9 @@ namespace weathercli
                     if (functions == 1)
                     {
                         Console.WriteLine("The current weather: ");
-                        if (dynamicresponse.response.ob.weather == "Mostly Cloudy")
-                        {
-                            Console.ForegroundColor = ConsoleColor.Gray;
-                            Console.WriteLine(@"      
-        .-~~~-.
-.- ~ ~-(       )_ 
-/                 ~ -.
-|                      \
-\                       .
-  ~- . _____________.-~)
-                                ");
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
-                        if (dynamicresponse.response.ob.weather == "Mostly Sunny")
-                        {
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine(@"      
-      ;   :   ;
-   .   \_,!,_/   ,
-    `.,'     `.,'
-     /         \
-~ -- :         : -- ~
-     \         /
-    ,'`._   _.'`.
-   '   / `!` \   `
-      ;   :   ;                                 ");
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
+                        
+                        weatherstatus.getvisu(dynamicresponse.response.ob.weather);
+
                         Console.WriteLine();
                         Console.WriteLine("its " + dynamicresponse.response.ob.weather + " at " + dynamicresponse.response.ob.tempC + "°C in " + dynamicresponse.response.place.city);
 

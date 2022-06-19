@@ -51,6 +51,7 @@
     <Compile Include="unix.cs" />
     <Compile Include="weatherCache.cs" />
     <Compile Include="weatherrequest.cs" />
+    <Compile Include="weatherstatus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

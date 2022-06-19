@@ -50,7 +50,7 @@ namespace weathercli
         public static bool weatherAvailable()
         {
             string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli\weather.json";
-            Debug.WriteLine("CHECKING IF WEATHER AVAILABLE");
+            Debug.WriteLine("\n\tCHECKING IF WEATHER AVAILABLE");
             if(File.Exists(path))
             {
                 Debug.WriteLine("--WEATHER IS AVAILABLE");
