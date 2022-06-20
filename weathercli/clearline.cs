@@ -8,7 +8,7 @@ namespace weathercli
 {
     internal class clearline
     {
-        public static void clearcurrentline()
+        public static void clearcurrentline(int count)
         {
             
             int currentLineCursor = Console.CursorTop;
