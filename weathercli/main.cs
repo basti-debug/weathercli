@@ -22,7 +22,7 @@ namespace weathercli
                 CLocation myLocation = new CLocation();
                 string location = myLocation.getlocation();
 
-                Console.WriteLine("");
+                Console.WriteLine(" ");
 
                 weatherrequest.apirequest(1, location);
 

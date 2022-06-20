@@ -31,11 +31,9 @@ namespace weathercli
                 Directory.CreateDirectory(path);
             }
 
-            //main.start();
+            main.start();
          
-            Console.ReadKey();
-            
-            clearline.clearcurrentline(1);
+          
               
             Console.ReadKey();
                         
