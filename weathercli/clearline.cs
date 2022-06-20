@@ -12,9 +12,10 @@ namespace weathercli
         {
             
             int currentLineCursor = Console.CursorTop;
-            Console.SetCursorPosition(0, Console.CursorTop);
+            Console.SetCursorPosition(0, count-1);
             Console.Write(new string(' ', Console.WindowWidth));
             Console.SetCursorPosition(0, currentLineCursor);
+            
         }
     }
 }
