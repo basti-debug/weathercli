@@ -34,17 +34,25 @@ namespace weathercli
 
             // get network info
 
-            networkinfo.getnetinfo();
+            bool net = networkinfo.getnetinfo();
 
-            // get current user location 
-            
 
-            CLocation myLocation = new CLocation();
-            string location = myLocation.getlocation();
+            // switch when network 
+            if (net)
+            {
+                // get current user location 
+                CLocation myLocation = new CLocation();
+                string location = myLocation.getlocation();
 
-            Console.WriteLine("");
+                Console.WriteLine("");
 
-            weatherrequest.apirequest(1, location);          
+                weatherrequest.apirequest(1, location);
+            }
+            if (!net)
+            {
+                Console.WriteLine("Restart the application if your network is back...");
+            }
+                      
 
             Console.ReadLine();
         }

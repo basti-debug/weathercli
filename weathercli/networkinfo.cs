@@ -23,8 +23,9 @@ namespace weathercli
                 PingReply reply = p.Send(host, 3000);
                 if (reply.Status == IPStatus.Success)
                 {
-                    return true;
                 }
+                result = true;
+                return result;
                 Debug.WriteLine("device is connected to the internet");
             }
             catch {
