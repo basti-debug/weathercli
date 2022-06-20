@@ -2,7 +2,6 @@
 
 A helpful weather programm, in a console with custom alerts, integrations etc.
 
-Uses https://github.com/LarsVomMars/Checkboxes Checkboxes to select the functions 
 Uses https://rapidapi.com/natkapral/api/ip-geo-location/ as the weather api 
 Uses System.Device.Location for device location.
 
