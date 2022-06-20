@@ -32,10 +32,9 @@ namespace weathercli
             }
 
             main.start();
+
          
           
-              
-            Console.ReadKey();
                         
             
         }

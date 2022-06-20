@@ -3,37 +3,59 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace weathercli
 {
-    internal class navmenu
+    class navmenu
     {
-        static bool selected = false;
-        static int position = 0; 
+        
 
         public static void submenu()
         {
+            bool selected = false;
+            int position = 0;
+
             Console.WriteLine("");
             Console.WriteLine("Options:");
+            Console.CursorTop = Console.CursorTop + 4;
             Console.WriteLine("");
-            Console.WriteLine("[x] change location");
-            Console.WriteLine("[ ] weatherforecast");
-            Console.WriteLine("[ ] set alert");
-            Console.WriteLine("[ ] options");
+            selector(0);
             
-            while (!selected)
-            {
-                if (Console.ReadKey().Key != ConsoleKey.UpArrow)
+            while (selected == false)
+            {  
+                
+                if (Console.ReadKey(true).Key == ConsoleKey.DownArrow)
                 {
-                    position++;
+                    if (position == 4)
+                    {
+                        position = 3;
+                        selector(position);
+                    }
+                    else
+                    {
+                        position++;
+                        selector(position);
+                    }
+                    
                     
                 }
-                if (Console.ReadKey().Key == ConsoleKey.DownArrow)
+                if (Console.ReadKey(true).Key == ConsoleKey.UpArrow)
                 {
-                    position--;
-                }
+                    if(position == 0)
+                    {
 
+                    }
+                    else
+                    {
+                        position--;
+                        selector(position);
+                    }
+                    
+                }
+                
             }
+
             
         }
 
@@ -41,7 +63,8 @@ namespace weathercli
         {
             if (position == 0)
             {
-                clearline.clearcurrentline(4);
+                clearline.clearcurrentline(6);
+                Console.WriteLine(" ");
                 Console.Write("[x]");
                 Console.WriteLine(" change location");
                 Console.Write("[ ]");
@@ -53,6 +76,8 @@ namespace weathercli
             }
             if (position == 1)
             {
+                clearline.clearcurrentline(6);
+                Console.WriteLine(" ");
                 Console.Write("[ ]");
                 Console.WriteLine(" change location");
                 Console.Write("[x]");
@@ -64,6 +89,8 @@ namespace weathercli
             }
             if (position == 2)
             {
+                clearline.clearcurrentline(6);
+                Console.WriteLine(" ");
                 Console.Write("[ ]");
                 Console.WriteLine(" change location");
                 Console.Write("[ ]");
@@ -75,6 +102,8 @@ namespace weathercli
             }
             if (position == 3)
             {
+                clearline.clearcurrentline(6);
+                Console.WriteLine(" ");
                 Console.Write("[ ]");
                 Console.WriteLine(" change location");
                 Console.Write("[ ]");

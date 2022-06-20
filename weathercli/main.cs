@@ -8,7 +8,7 @@ namespace weathercli
 {
     internal class main
     {
-        public static async void start()
+        public static void start()
         {
             // get network info
 

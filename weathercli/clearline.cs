@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace weathercli
 {
@@ -11,10 +12,14 @@ namespace weathercli
         public static void clearcurrentline(int count)
         {
             
-            int currentLineCursor = Console.CursorTop;
-            Console.SetCursorPosition(0, count-1);
-            Console.Write(new string(' ', Console.WindowWidth));
-            Console.SetCursorPosition(0, currentLineCursor);
+            int topcount = Console.CursorTop;   
+
+            for (int i = 0; i < count; i++)
+            {
+                 Console.SetCursorPosition(0, topcount - i);
+                 Console.Write(new string(' ', Console.WindowWidth));
+               
+            }
             
         }
     }

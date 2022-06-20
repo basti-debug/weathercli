@@ -22,7 +22,7 @@ namespace weathercli
 
             public string getlocation()
             {
-                Debug.WriteLine("get location function working...");
+                Debug.WriteLine("get location...");
                 this.watcher = new GeoCoordinateWatcher();
                 this.watcher.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(watcher_PositionChanged);
                 bool started = this.watcher.TryStart(false, TimeSpan.FromMilliseconds(2000));

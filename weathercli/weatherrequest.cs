@@ -32,7 +32,7 @@ namespace weathercli
         {
             if(function == 1)
             {
-                if (weatherCache.weatherOld())
+                /*if (weatherCache.weatherOld())
                 {
                     Debug.WriteLine("-----------------------GETTING NEW WEATHER FROM API-----------------------");
                     string url = "https://aerisweather1.p.rapidapi.com/observations/" + location;
@@ -64,17 +64,17 @@ namespace weathercli
 
                                 weatherstatus.getvisu(Convert.ToString(dynamicresponse.response.ob.weather));
 
-                                Console.WriteLine();
+                                Console.WriteLine("");
                                 Console.WriteLine("its " + dynamicresponse.response.ob.weather + " at " + dynamicresponse.response.ob.tempC + "°C in " + dynamicresponse.response.place.city);
+                                Console.WriteLine("");
 
-
-                            navmenu.submenu();
+                                navmenu.submenu();
                         }
                     }
 
                 }
                 else if (weatherCache.weatherOld() != true)
-                {
+                { */
                     var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(weatherCache.readCache());
                     Debug.WriteLine("USING OLD WEATHER");
                     if (doublestop == 0)
@@ -85,11 +85,14 @@ namespace weathercli
 
                             weatherstatus.getvisu(Convert.ToString(dynamicresponse.response.ob.weather));
 
-                            Console.WriteLine();
+                            Console.WriteLine("");
                             Console.WriteLine("its " + dynamicresponse.response.ob.weather + " at " + dynamicresponse.response.ob.tempC + "°C in " + dynamicresponse.response.place.city);
+                            Console.WriteLine("");
+
+                            navmenu.submenu();
 
                     }
-                }
+                //}
             }
 
 
