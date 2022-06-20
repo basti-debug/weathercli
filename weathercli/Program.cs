@@ -20,7 +20,7 @@ namespace weathercli
 
             Console.SetWindowSize(48, 30);
             Console.WriteLine("weathercli V1");
-
+            Console.ForegroundColor = ConsoleColor.White;
 
             string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli";
             Debug.WriteLine(path);
@@ -31,30 +31,12 @@ namespace weathercli
                 Directory.CreateDirectory(path);
             }
 
-
-            // get network info
-
-            bool net = networkinfo.getnetinfo();
-
-
-            // switch when network 
-            if (net)
-            {
-                // get current user location 
-                CLocation myLocation = new CLocation();
-                string location = myLocation.getlocation();
-
-                Console.WriteLine("");
-
-                weatherrequest.apirequest(1, location);
-            }
-            if (!net)
-            {
-                Console.WriteLine("Restart the application if your network is back...");
-            }
-                      
-
-            Console.ReadLine();
+            main.start();
+         
+            Console.ReadKey();
+            
+                        
+            
         }
     }
 

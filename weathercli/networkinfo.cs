@@ -29,6 +29,7 @@ namespace weathercli
                 Debug.WriteLine("device is connected to the internet");
             }
             catch {
+                Debug.WriteLine("device is not connected to the internet");
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(@"  
             

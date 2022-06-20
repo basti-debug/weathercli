@@ -32,7 +32,7 @@ namespace weathercli
         {
             if(function == 1)
             {
-                if (weatherCache.weatherOld() == true)
+                if (weatherCache.weatherOld())
                 {
                     Debug.WriteLine("-----------------------GETTING NEW WEATHER FROM API-----------------------");
                     string url = "https://aerisweather1.p.rapidapi.com/observations/" + location;
@@ -67,6 +67,8 @@ namespace weathercli
                                 Console.WriteLine();
                                 Console.WriteLine("its " + dynamicresponse.response.ob.weather + " at " + dynamicresponse.response.ob.tempC + "°C in " + dynamicresponse.response.place.city);
 
+
+                            navmenu.submenu();
                         }
                     }
 
