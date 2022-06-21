@@ -1,26 +1,21 @@
-# weathercli
+# WeatherCLI
 
-A helpful weather programm, in a console with custom alerts, integrations etc.
+**_WeatherCLI_** is a **turnkey** solution for checking the weather and getting forecasts in the commandline. The location of the forecasted region can be typed in manually (for those who are data-safety-aficionados), or the application can use your devices GPS for accurate location measurements. 
 
-Uses https://rapidapi.com/natkapral/api/ip-geo-location/ as the weather api 
-Uses System.Device.Location for device location.
+## Documentation Overview
 
-Planned Features for Version 1: 
+### Project Documentation
 
-start the programm there you have the weather for you current position
+- [Idea & Concept](./docs/project/Idea-and-Concept.md)
+- [Projectplanning](./docs/project/Projectplanning.md)
+- [Feature Overview](./docs/features/Index.md)
 
-you have the options to change the location, set custom alerts, or go to the options 
+### Technical Documentation
 
-the current weather will be displayed with a little forecast in ascii text art style 
+- [Technologie Stack](./docs/technical/technology-stack.md)
+- [Architecture](./docs/technical/Architecture.md)
 
+## Contributors
 
-* custom weather alerts:
-
-  you have the choice to select between setting a alert for a selected position in a selected interval 
-  like, you get a notification every morning that how the weather is now outside and how it will be today
-  
-  or a notification everytime the weather changes at a certain position, like when the weather changes at the lake, so you can go for a swim 
-  
-  
-  For more information look into the project here: 
-  https://github.com/users/basti-debug/projects/1
+- Basti (email)
+- Joel (joel.rupp05@gmail.com)
