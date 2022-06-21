@@ -1,18 +1,16 @@
-# Feature One
+# Getting the devices location with GPS
 
-Add here a description about the feature and what it is capable of for which user.
+For better quality of life when using _**WeatherCLI**_ the location of the devices and therefore the forecast should be determined with the internal GPS-module of the device
 
 ## Requirements
 
-List the concrete requirements as a list here
 
-- user is able to select an address
-- map is updated after altering the address
-- ...
+* user has an alternative to GPS (manual input)
+* location is directly sent to the API for utilizing it to determine the nearest weatherstation
 
-## Additional Information
+## Further Information
 
-If you have any additional information like challenges you had to overcome, special mentions, etc. you can add them here.
+[Determining GPS location](https://docs.microsoft.com/en-us/dotnet/api/system.device.location)
 
 ---
 
