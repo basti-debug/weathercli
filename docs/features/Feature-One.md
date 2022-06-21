@@ -4,7 +4,7 @@ For better quality of life when using _**WeatherCLI**_ the location of the devic
 
 ## Requirements
 
-
+* Inability to get location mustn't let the application crash
 * user has an alternative to GPS (manual input)
 * location is directly sent to the API for utilizing it to determine the nearest weatherstation
 
