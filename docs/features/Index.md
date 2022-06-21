@@ -6,4 +6,4 @@ Only the backend features will be described, as the frontend consists of nothing
 
 - [Location with GPS](./Feature-One.md)
 - [API-query](./Feature-Two.md)
-- [Ratelimit and dealing with it](./Feature-Three.md)
+- [Ratelimit: What it is and how we dealt with it](./Feature-Three.md)
