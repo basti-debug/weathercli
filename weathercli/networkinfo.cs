@@ -13,7 +13,7 @@ namespace weathercli
         public static bool getnetinfo()
         {
             Debug.WriteLine("network test started...");
-            string host = ("www.c-sharpcorner.com");  
+            string host = ("www.google.com");  
             
                 bool result = false;
             

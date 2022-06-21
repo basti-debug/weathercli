@@ -145,10 +145,12 @@ namespace weathercli
         {
             if (optionnumber == 0)
             {
+                bool a = false; 
+                Console.Clear();
                 Console.WriteLine("Change your location:"); 
                  
                 
-                while (true)
+                while (!a)
                 {
                     try
 
@@ -159,11 +161,25 @@ namespace weathercli
                         { throw new Exception("Locations must contain comma, and not contain any numbers"); };
                         break;
 
-                        Debug.WriteLine(location);
+                        a = true;
                     
                     }
-                    catch (Exception) { }
+                    catch (Exception) {
+                    Console.Clear();
+                    Console.WriteLine("Please use the correct format");
+                    }
                 }
+
+
+            }
+
+            if (optionnumber == 1)
+            {
+                Console.Clear();
+                Console.WriteLine("Forecast for set location:");
+
+                Console.WriteLine("today:");
+                
             }
         }
     }

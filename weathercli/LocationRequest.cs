@@ -55,6 +55,11 @@ namespace weathercli
             
             }
 
+            public string geocode()
+            {
+                
+            }
+
        
 
 
