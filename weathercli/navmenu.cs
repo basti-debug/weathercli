@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 
 namespace weathercli
-{
+{ 
     class navmenu
     {
         
@@ -21,43 +21,66 @@ namespace weathercli
             Console.CursorTop = Console.CursorTop + 4;
             Console.WriteLine("");
             selector(0);
+
+            ConsoleKeyInfo keyp;
             
-            while (selected == false)
-            {  
+            do
+            { 
+                keyp = Console.ReadKey(true);
                 
-                if (Console.ReadKey(true).Key == ConsoleKey.DownArrow)
+                switch(keyp.Key)
                 {
-                    if (position == 4)
-                    {
-                        position = 3;
-                        selector(position);
-                    }
-                    else
-                    {
-                        position++;
-                        selector(position);
-                    }
+                    case ConsoleKey.UpArrow:
                     
+
+                        if(position == 0)
+                        {
+                            
+                        }
+
+                        else
+                        {
+                            selector(position);
+                            position--;
+                            selector(position);
+                        }
+                    break;
+                    case ConsoleKey.DownArrow:
+                    
+                    
+                        if (position == 4)
+                        {
+                            selector(position);
+                            position = 3;
+                            selector(position);
+                        }
+                        else
+                        {
+                            selector(position);
+                            position++;
+                            selector(position);
+                        }
+                    break;
+                    case ConsoleKey.Enter:
+                    
+                        Debug.WriteLine("Enter pressed");
+                        selected = true;
+                        options(position);
+                    break;
+
+                    default:
+                    
+                        break;
                     
                 }
-                if (Console.ReadKey(true).Key == ConsoleKey.UpArrow)
-                {
-                    if(position == 0)
-                    {
 
-                    }
-                    else
-                    {
-                        position--;
-                        selector(position);
-                    }
-                    
-                }
-                
-            }
+            }while (!selected);
 
-            
         }
+
+
+            
+     
 
         public static void selector(int position)
         {
@@ -117,5 +140,32 @@ namespace weathercli
 
 
         }
+
+        public static void options(int optionnumber)
+        {
+            if (optionnumber == 0)
+            {
+                Console.WriteLine("Change your location:"); 
+                 
+                
+                while (true)
+                {
+                    try
+
+                    {
+                        Console.WriteLine("Enter the location you want to know the weather from: (city,countrycode)");
+                        string location = Console.ReadLine();
+                        if (!location.Contains(",") || location.Any(c => char.IsDigit(c))) //Check if input contains a comma and doesnt contain a number
+                        { throw new Exception("Locations must contain comma, and not contain any numbers"); };
+                        break;
+
+                        Debug.WriteLine(location);
+                    
+                    }
+                    catch (Exception) { }
+                }
+            }
+        }
     }
 }
+
