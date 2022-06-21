@@ -17,5 +17,5 @@
 
 ## Contributors
 
-- Basti (email)
+- Basti (basti.debug@gmail.com)
 - Joel (joel.rupp05@gmail.com)
