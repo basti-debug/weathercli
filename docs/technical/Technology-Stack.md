@@ -2,9 +2,9 @@
 
 Here you can describe which technology stack you used. A simple unordered list is sufficient.
 
-- C# 6.0
-- WPF (or other)
-- ...
+- C# 10.0
+- .NET Framework 4.8
+- Newtonsoft JSON-Tools
 
 ---
 
