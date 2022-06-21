@@ -1,9 +1,9 @@
 # Feature Overview
 
-Please provide your 3-5 most important features. List them here and provide a detailed documentation about them.
+Only the backend features will be described, as the frontend consists of nothing worthy of describing
 
 ## Overview
 
-- [Feature One](./Feature-One.md)
-- [Feature Two](./Feature-Two.md)
-- [Feature Thre](./Feature-Three.md)
+- [Location with GPS](./Feature-One.md)
+- [API-query](./Feature-Two.md)
+- [Ratelimit and dealing with it](./Feature-Three.md)
