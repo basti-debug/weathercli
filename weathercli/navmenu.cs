@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using weathercli;
 
 namespace weathercli
 { 
@@ -145,6 +146,7 @@ namespace weathercli
         {
             if (optionnumber == 0)
             {
+                string location = "";
                 bool a = false; 
                 Console.Clear();
                 Console.WriteLine("Change your location:"); 
@@ -156,12 +158,14 @@ namespace weathercli
 
                     {
                         Console.WriteLine("Enter the location you want to know the weather from: (city,countrycode)");
-                        string location = Console.ReadLine();
+                        location = Console.ReadLine();
                         if (!location.Contains(",") || location.Any(c => char.IsDigit(c))) //Check if input contains a comma and doesnt contain a number
                         { throw new Exception("Locations must contain comma, and not contain any numbers"); };
-                        break;
 
                         a = true;
+                        break;
+
+                        
                     
                     }
                     catch (Exception) {
@@ -170,6 +174,12 @@ namespace weathercli
                     }
                 }
 
+                locationrequest n = new locationrequest();
+                n.geocode(location);
+
+                
+                Console.ReadKey();
+           ;
 
             }
 

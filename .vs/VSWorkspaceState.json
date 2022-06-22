@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\weathercli"
   ],
+  "SelectedNode": "\\weathercli\\LocationRequest.cs",
   "PreviewInSolutionExplorer": false
 }

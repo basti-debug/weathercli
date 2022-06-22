@@ -97,7 +97,7 @@ namespace weathercli
 
             if (function == 2)
             {
-                var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(weatherCache.readCache())
+                var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(weatherCache.readCache());
                     
             }
 

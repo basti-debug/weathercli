@@ -18,9 +18,9 @@ namespace weathercli
             // switch when network 
             if (net)
             {
-                // get current user location 
-                CLocation myLocation = new CLocation();
-                string location = myLocation.getlocation();
+                locationrequest a = new locationrequest();
+                
+                string location = a.getlocation();
 
                 Console.WriteLine(" ");
 
