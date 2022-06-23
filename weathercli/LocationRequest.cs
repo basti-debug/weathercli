@@ -1,13 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Device.Location;
 using Checkboxx;
-using System.Linq;
 using System.Globalization;
-using System.Threading.Tasks;
 using System.Threading;
-using System.Diagnostics;
-using System.Net.Http;
-
 
 
 namespace weathercli
@@ -62,10 +65,10 @@ namespace weathercli
             {
 
                 string[] larray = enteredlocation.Split(',');
-                string trail = larray[0] + "%20" + larray[1];
+                string trail = larray[0] + "%2C" + larray[1];
                 
                 Debug.WriteLine(enteredlocation);
-                string url = String.Format("https://google-maps-geocoding.p.rapidapi.com/geocode/json?latlng={0}&language=en", trail);
+                string url = String.Format("https://google-maps-geocoding.p.rapidapi.com/geocode/json?address={0}&language=en", trail);
                 Debug.WriteLine(url);
 
                 var client = new HttpClient();
@@ -84,7 +87,10 @@ namespace weathercli
                 {
                     response.EnsureSuccessStatusCode();
                     var body = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine(body);
+                    var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(body);
+                    Console.WriteLine(dynamicresponse.results.geometry.location.lat);
+                    //location = Convert.ToString(dynamicresponse.results.geometry.location.lat + dynamicresponse.results.geometry.location.lng);
+                    Console.WriteLine(location);
                 }
                 
             

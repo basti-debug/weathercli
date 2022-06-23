@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -32,7 +31,7 @@ namespace weathercli
         {
             if(function == 1)
             {
-                /*if (weatherCache.weatherOld())
+                if (weatherCache.weatherOld())
                 {
                     Debug.WriteLine("-----------------------GETTING NEW WEATHER FROM API-----------------------");
                     string url = "https://aerisweather1.p.rapidapi.com/observations/" + location;
@@ -43,12 +42,15 @@ namespace weathercli
                         RequestUri = new Uri(url),
                         Headers =
     {
-        { "X-RapidAPI-Key", "669084b3c7msh56151ee8082858fp1b9eddjsnd5fd23b18432" },
+        { "X-RapidAPI-Key", "cbaf259eb9mshdb3ee63e2cc038ep1a065fjsn3c08fd92c285" },
         { "X-RapidAPI-Host", "aerisweather1.p.rapidapi.com" },
     },
                     };
                     using (var response = await client.SendAsync(request))
-                    {
+                    {   
+                        
+                        
+                        Debug.WriteLine("got weather");
                         response.EnsureSuccessStatusCode();
                         var body = await response.Content.ReadAsStringAsync();
                         var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(body);
@@ -68,13 +70,13 @@ namespace weathercli
                                 Console.WriteLine("its " + dynamicresponse.response.ob.weather + " at " + dynamicresponse.response.ob.tempC + "°C in " + dynamicresponse.response.place.city);
                                 Console.WriteLine("");
 
-                                navmenu.submenu();
-                        }
+                                
+                        }       
                     }
 
                 }
                 else if (weatherCache.weatherOld() != true)
-                { */
+                { 
                     var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(weatherCache.readCache());
                     Debug.WriteLine("USING OLD WEATHER");
                     if (doublestop == 0)
@@ -92,7 +94,7 @@ namespace weathercli
                             navmenu.submenu();
 
                     }
-                //}
+                }
             }
 
             if (function == 2)

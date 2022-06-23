@@ -29,7 +29,6 @@ namespace weathercli
             }
             if (!net)
             {
-                Console.WriteLine("Restart the application if your network is back...");
                 Console.WriteLine("");
                 Console.WriteLine("your network is back ? \n press the any key ");
                 Console.ReadKey();
