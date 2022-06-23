@@ -70,6 +70,7 @@ namespace weathercli
                                 Console.WriteLine("its " + dynamicresponse.response.ob.weather + " at " + dynamicresponse.response.ob.tempC + "°C in " + dynamicresponse.response.place.city);
                                 Console.WriteLine("");
 
+                                navmenu.submenu();
                                 
                         }       
                     }
@@ -91,6 +92,7 @@ namespace weathercli
                             Console.WriteLine("its " + dynamicresponse.response.ob.weather + " at " + dynamicresponse.response.ob.tempC + "°C in " + dynamicresponse.response.place.city);
                             Console.WriteLine("");
 
+                            
                             navmenu.submenu();
 
                     }

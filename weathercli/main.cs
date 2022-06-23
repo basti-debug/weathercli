@@ -25,6 +25,7 @@ namespace weathercli
                 Console.WriteLine(" ");
 
                 weatherrequest.apirequest(1, location);
+                Console.ReadKey();
 
             }
             if (!net)
