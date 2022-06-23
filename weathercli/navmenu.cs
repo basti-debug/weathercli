@@ -150,7 +150,6 @@ namespace weathercli
                 bool a = false; 
                 Console.Clear();
                 Console.WriteLine("Change your location:"); 
-                 
                 
                 while (!a)
                 {

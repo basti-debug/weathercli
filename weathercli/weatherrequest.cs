@@ -71,6 +71,7 @@ namespace weathercli
                                 Console.WriteLine("");
 
                                 navmenu.submenu();
+                                Console.ReadKey();
                                 
                         }       
                     }
@@ -94,6 +95,7 @@ namespace weathercli
 
                             
                             navmenu.submenu();
+                            Console.ReadKey();
 
                     }
                 }
