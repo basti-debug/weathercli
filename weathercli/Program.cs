@@ -13,6 +13,7 @@ namespace weathercli
 {
     internal class Program
     {
+        public static string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli";
         static void Main(string[] args)
         {
             Debug.WriteLine("\n-main-  main start");
@@ -27,7 +28,7 @@ namespace weathercli
             Console.WriteLine("made by basti.debug & joel05");
             Console.WriteLine(" ");
 
-            string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli";
+           
 
             // creating path for caching
             if (!Directory.Exists(path))

@@ -35,7 +35,7 @@ namespace weathercli
                 string selection = "r";
                 selection = Console.ReadLine();
 
-                if (selection == "c") //cache selected
+                if (selection == "c") //cache selected       route 1
                 {
                     Console.Clear();
                     Console.WriteLine("Data may be outdated...");
@@ -45,9 +45,12 @@ namespace weathercli
                     Console.WriteLine("");
 
                     int doublestop = 0;
+                    
                     var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(weatherCache.readCache());
+                    
+                    
 
-                    Debug.WriteLine("\n-main-  using chache data\n");
+                    Debug.WriteLine("\n-main-  using chache data  //route 1\n");
 
                     if (doublestop == 0)
                     {
@@ -67,12 +70,13 @@ namespace weathercli
 
                     }
                 }
-                else //when request selected
+                else //when request selected        route 2
                 {
                     Console.Clear();
                     Console.WriteLine("getting the location of your device..");
 
-                    
+                    Debug.WriteLine("\n-main-  request selected  //route 2\n");
+
                     //get location
                     locationrequest a = new locationrequest();
                     string location = a.getlocation();
@@ -80,7 +84,7 @@ namespace weathercli
                     Console.Clear();
                     //use apirequest function 1 to send location to api
                     weatherrequest.apirequest(1, location);
-                    Console.WriteLine("");
+                    Console.ReadKey();
                 }
 
                 #endregion
