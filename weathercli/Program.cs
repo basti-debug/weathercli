@@ -18,9 +18,14 @@ namespace weathercli
             Debug.WriteLine("\n-main-  main start");
 
 
-            Console.SetWindowSize(50,30);
-            Console.WriteLine("weathercli V0.100");
+            Console.SetWindowSize(60,30);
+            Console.WriteLine("weathercli V0.101");
+            
             Console.ForegroundColor = ConsoleColor.White;
+
+            Console.WriteLine(" ");
+            Console.WriteLine("made by basti.debug & joel05");
+            Console.WriteLine(" ");
 
             string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli";
 

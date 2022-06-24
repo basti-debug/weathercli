@@ -8,7 +8,7 @@ namespace weathercli
 {
     internal class weatherstatus
     {
-        public static void getvisu(string weather)
+        public static void getvisu(string weather) // displays current weather with some ascii art
         {
             switch (weather)
             {
@@ -61,6 +61,24 @@ namespace weathercli
                         Console.ForegroundColor = ConsoleColor.White;
 
                         break;
+
+                case "Mostly Clear":
+
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine(@"      
+    
+        *    *          *   
+                *               *
+
+                            * 
+
+
+
+                                                ");
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                    break;
+
                 default:
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(@"  

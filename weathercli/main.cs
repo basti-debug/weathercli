@@ -19,13 +19,19 @@ namespace weathercli
             
             if (net) // network is available 
             {
-                //get location
-                locationrequest a = new locationrequest();
-                string location = a.getlocation();
-
                 #region caching?
 
-                Console.WriteLine("use cache or send request?:  (c/r)");
+                Console.Write("Do you want to use your local ");
+                Console.BackgroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.Write(".json");
+                Console.BackgroundColor= ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine(" Cache?");
+                Console.WriteLine("or do you wana check the current weather with the api?");
+                Console.WriteLine("Select: c/r");
+
+
                 string selection = "r";
                 selection = Console.ReadLine();
 
@@ -33,7 +39,10 @@ namespace weathercli
                 {
                     Console.Clear();
                     Console.WriteLine("Data may be outdated...");
-                    
+                    Console.WriteLine(" also chance location function may not work ");
+                    Console.WriteLine(" if you dont have any api requests left");
+                    Console.WriteLine("");
+
                     int doublestop = 0;
                     var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(weatherCache.readCache());
 
@@ -59,6 +68,10 @@ namespace weathercli
                 }
                 else //when request selected
                 {
+                    //get location
+                    locationrequest a = new locationrequest();
+                    string location = a.getlocation();
+
                     //use apirequest function 1 to send location to api
                     weatherrequest.apirequest(1, location);
                     Console.WriteLine("");

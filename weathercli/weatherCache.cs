@@ -11,9 +11,9 @@ namespace weathercli
 {
     internal class weatherCache
     {
-        public static bool weatherage()
+        public static bool weatherage() //Checks how old the cache is 
         {
-            if (weatherAvailable()!=true)
+            if (weatherAvailable()!=true) 
             {
                 Debug.WriteLine("\n-cache-  weather isnt available on device -- function returened old\n");
                 return true;
@@ -33,7 +33,7 @@ namespace weathercli
                 return false;
             }
         }
-       public static string readCache()
+       public static string readCache() //read chache
         {
             string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli\weather.json";
             string weather = File.ReadAllText(path);
