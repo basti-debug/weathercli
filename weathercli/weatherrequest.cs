@@ -13,31 +13,36 @@ namespace weathercli
     {
         
 
-        public static void currentWeather()
+        public static void showweather(string weather, string temp, string city)
         {
+            weatherstatus.getvisu(weather);
 
-        }
-        public static void setAlert()
-        {
-        }
-        public static void options()
-        {
+            Console.WriteLine("");
+            Console.WriteLine("its " + weather + " at " + temp + "°C in " + city);
+            Console.WriteLine("");
 
+            navmenu.submenu();
+            Console.ReadKey();
         }
+
 
         public static string returnvalue = "error";
 
         public static async void apirequest(int function, string location)
         {
+            // get normal weather for position 
             if (function == 1)
             { 
             
-                if (weatherCache.weatherage())
+                if (weatherCache.weatherage()) //using fresh weather because cache isnt updated or doesnt exist
                 {
+
                     int doublestop = 0;
 
                     Debug.WriteLine("\n-apirequest.weather-  fresh weather - getting weather from api in function 1  //step 1\n");
-                    
+
+                    #region apirequest
+
                     string url = "https://aerisweather1.p.rapidapi.com/observations/" + location;
                     
                     Debug.WriteLine("\n-apirequest.weather-  " + url + "\n");
@@ -53,6 +58,9 @@ namespace weathercli
         { "X-RapidAPI-Host", "aerisweather1.p.rapidapi.com" },
     },
                     };
+
+                    #endregion
+
                     using (var response = await client.SendAsync(request))
                     {
                         response.EnsureSuccessStatusCode();
@@ -70,23 +78,14 @@ namespace weathercli
                         {
                             doublestop++;
 
-                                
-                            Console.WriteLine("The current weather: ");
-                            
-                            weatherstatus.getvisu(Convert.ToString(dynamicresponse.response.ob.weather));
-                            
-                            Console.WriteLine("");
-                            Console.WriteLine("its " + dynamicresponse.response.ob.weather + " at " + dynamicresponse.response.ob.tempC + "°C in " + dynamicresponse.response.place.city);
-                            Console.WriteLine("");
-                            
-                            navmenu.submenu();
-                            Console.ReadKey();
-                                                    
+                            Console.WriteLine("Current weather:");
+                            showweather(dynamicresponse.response.ob.weather, dynamicresponse.response.ob.tempC, dynamicresponse.response.place.city);
+
                         }       
                     }
 
                 }
-                else if (weatherCache.weatherage() != true)
+                else if (weatherCache.weatherage() != true) //updated & current weather is available and will be used 
                 { 
                     int doublestop = 0;
                     var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(weatherCache.readCache());
@@ -96,18 +95,9 @@ namespace weathercli
                     if (doublestop == 0)
                     {
                         doublestop++;
-                        
-                            
-                        Console.WriteLine("The current weather: ");
-                        
-                        weatherstatus.getvisu(Convert.ToString(dynamicresponse.response.ob.weather));
-                        
-                        Console.WriteLine("");
-                        Console.WriteLine("its " + dynamicresponse.response.ob.weather + " at " + dynamicresponse.response.ob.tempC + "°C in " + dynamicresponse.response.place.city);
-                        Console.WriteLine("");
-                        
-                        navmenu.submenu();  
-                        Console.ReadKey();
+
+                        Console.WriteLine("Current weather:");
+                        showweather(dynamicresponse.response.ob.weather, dynamicresponse.response.ob.tempC, dynamicresponse.response.place.city);
 
                     }
                 }
@@ -115,9 +105,11 @@ namespace weathercli
 
             }
 
-            if (function == 2)
-            {
+            //get current weather from NEW position
+            if (function == 2) 
 
+            {
+                #region apirequest
                 Debug.WriteLine("\n-apirequest.weather-  getting weather from api in function 2");
                 
                 string url = "https://aerisweather1.p.rapidapi.com/observations/" + location;
@@ -132,6 +124,9 @@ namespace weathercli
         { "X-RapidAPI-Host", "aerisweather1.p.rapidapi.com" },
     },
                 };
+
+                #endregion
+
                 using (var response = await client.SendAsync(request))
                 {   
                     int doublestop = 0;
@@ -147,19 +142,11 @@ namespace weathercli
                     if (doublestop == 0)
                     {
                         doublestop++;
-                            
-                        Console.WriteLine("The current weather: ");
 
-                        weatherstatus.getvisu(Convert.ToString(dynamicresponse.response.ob.weather));
+                        Console.WriteLine("Current weather:");
+                        showweather(dynamicresponse.response.ob.weather, dynamicresponse.response.ob.tempC, dynamicresponse.response.place.city);
 
-                        Console.WriteLine("");
-                        Console.WriteLine("its " + dynamicresponse.response.ob.weather + " at " + dynamicresponse.response.ob.tempC + "°C in " + dynamicresponse.response.place.city);
-                        Console.WriteLine("");
-
-                        navmenu.submenu();
-                        Console.ReadKey();
-
-                        }
+                    }
                     }
             }
         }

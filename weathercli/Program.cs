@@ -19,7 +19,7 @@ namespace weathercli
 
 
             Console.SetWindowSize(50,30);
-            Console.WriteLine("weathercli V1");
+            Console.WriteLine("weathercli V0.100");
             Console.ForegroundColor = ConsoleColor.White;
 
             string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli";
@@ -30,6 +30,7 @@ namespace weathercli
                 Directory.CreateDirectory(path);
             }
 
+            
             main.start();
 
          

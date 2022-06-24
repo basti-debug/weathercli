@@ -5,12 +5,7 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
-    },
-    "59449907-a716-4e56-a326-230625a5d118": {
-      "ProjectGuid": "59449907-a716-4e56-a326-230625a5d118",
-      "DisplayName": "weathercli",
-      "ColorIndex": 0
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 0
 }
