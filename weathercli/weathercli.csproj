@@ -45,8 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Checkbox.cs" />
-    <Compile Include="clearline.cs" />
-    <Compile Include="LocationRequest.cs" />
+    <Compile Include="internfunctions.cs" />
+    <Compile Include="locationrequest.cs" />
     <Compile Include="main.cs" />
     <Compile Include="navmenu.cs" />
     <Compile Include="networkinfo.cs" />

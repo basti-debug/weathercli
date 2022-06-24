@@ -18,8 +18,8 @@ namespace weathercli
             Debug.WriteLine("\n-main-  main start");
 
 
-            Console.SetWindowSize(60,30);
-            Console.WriteLine("weathercli V0.101");
+            Console.SetWindowSize(60,40);
+            Console.WriteLine("weathercli V0.102");
             
             Console.ForegroundColor = ConsoleColor.White;
 

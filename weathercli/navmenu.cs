@@ -52,10 +52,10 @@ namespace weathercli
                     case ConsoleKey.DownArrow:
                     
                     
-                        if (position == 4)
+                        if (position == 3)
                         {
                             selector(position);
-                            position = 3;
+                            position = 2;
                             selector(position);
                         }
                         else
@@ -85,67 +85,32 @@ namespace weathercli
 
         }
 
-
-            
-     
-
         public static void selector(int position)
         {
             if (position == 0)
             {
-                clearline.clearcurrentline(6);
+                internfunctions.clearline(5);
                 Console.WriteLine(" ");
-                Console.Write("[x]");
-                Console.WriteLine(" change location");
-                Console.Write("[ ]");
-                Console.WriteLine(" weatherforecast");
-                Console.Write("[ ]");
-                Console.WriteLine(" set alert");
-                Console.Write("[ ]");
-                Console.WriteLine(" options");
+                Console.WriteLine("[x] change location");
+                Console.WriteLine("[ ] set alerts");
+                Console.WriteLine("[ ] options");
             }
             if (position == 1)
             {
-                clearline.clearcurrentline(6);
+                internfunctions.clearline(5);
                 Console.WriteLine(" ");
-                Console.Write("[ ]");
-                Console.WriteLine(" change location");
-                Console.Write("[x]");
-                Console.WriteLine(" weatherforecast");
-                Console.Write("[ ]");
-                Console.WriteLine(" set alert");
-                Console.Write("[ ]");
-                Console.WriteLine(" options");
+                Console.WriteLine("[ ] change location");
+                Console.WriteLine("[x] set alerts");
+                Console.WriteLine("[ ] options");
             }
             if (position == 2)
             {
-                clearline.clearcurrentline(6);
+                internfunctions.clearline(5);
                 Console.WriteLine(" ");
-                Console.Write("[ ]");
-                Console.WriteLine(" change location");
-                Console.Write("[ ]");
-                Console.WriteLine(" weatherforecast");
-                Console.Write("[x]");
-                Console.WriteLine(" set alert");
-                Console.Write("[ ]");
-                Console.WriteLine(" options");
+                Console.WriteLine("[ ] change location");
+                Console.WriteLine("[ ] set alerts");
+                Console.WriteLine("[x] options");
             }
-            if (position == 3)
-            {
-                clearline.clearcurrentline(6);
-                Console.WriteLine(" ");
-                Console.Write("[ ]");
-                Console.WriteLine(" change location");
-                Console.Write("[ ]");
-                Console.WriteLine(" weatherforecast");
-                Console.Write("[ ]");
-                Console.WriteLine(" set alert");
-                Console.Write("[x]");
-                Console.WriteLine(" options");
-            }
-
-
-
         }
 
         public static void options(int optionnumber)
@@ -182,7 +147,6 @@ namespace weathercli
                 Task.Delay(100);
                 Console.Clear();
                 weatherrequest.apirequest(2, location);
-
                 Console.ReadKey();
 
             }

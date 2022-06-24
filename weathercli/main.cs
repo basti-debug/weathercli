@@ -39,8 +39,9 @@ namespace weathercli
                 {
                     Console.Clear();
                     Console.WriteLine("Data may be outdated...");
-                    Console.WriteLine(" also chance location function may not work ");
-                    Console.WriteLine(" if you dont have any api requests left");
+                    Console.WriteLine("");
+                    Console.WriteLine("Note: The 'Chance Location' function may not work,");
+                    Console.WriteLine("if you dont have any api requests left");
                     Console.WriteLine("");
 
                     int doublestop = 0;
@@ -68,10 +69,15 @@ namespace weathercli
                 }
                 else //when request selected
                 {
+                    Console.Clear();
+                    Console.WriteLine("getting the location of your device..");
+
+                    
                     //get location
                     locationrequest a = new locationrequest();
                     string location = a.getlocation();
 
+                    Console.Clear();
                     //use apirequest function 1 to send location to api
                     weatherrequest.apirequest(1, location);
                     Console.WriteLine("");

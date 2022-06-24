@@ -7,9 +7,9 @@ using System.Diagnostics;
 
 namespace weathercli
 {
-    internal class clearline
+    internal class internfunctions
     {
-        public static void clearcurrentline(int count)
+        public static void clearline(int count)
         {
             
             int topcount = Console.CursorTop;   
@@ -22,5 +22,7 @@ namespace weathercli
             }
             
         }
+
+        
     }
 }

@@ -19,10 +19,9 @@ namespace weathercli
 
             Console.WriteLine("");
             Console.WriteLine("its " + weather + " at " + temp + "°C in " + city);
-            Console.WriteLine("");
-
+            
             navmenu.submenu();
-            Console.ReadKey();
+
         }
 
 
@@ -37,7 +36,6 @@ namespace weathercli
                 if (weatherCache.weatherage()) //using fresh weather because cache isnt updated or doesnt exist
                 {
 
-                    int doublestop = 0;
 
                     Debug.WriteLine("\n-apirequest.weather-  fresh weather - getting weather from api in function 1  //step 1\n");
 
@@ -60,9 +58,10 @@ namespace weathercli
                     };
 
                     #endregion
-
+                    
                     using (var response = await client.SendAsync(request))
                     {
+                        int doublestop = 0;
                         response.EnsureSuccessStatusCode();
                         var body = await response.Content.ReadAsStringAsync();
                         var dynamicresponse = JsonConvert.DeserializeObject<dynamic>(body);
@@ -70,17 +69,15 @@ namespace weathercli
                         Debug.WriteLine("\n-apirequest.weather-  got weather from api in function 1 //step 2\n");
                         
                         weatherCache.writeCache(dynamicresponse.ToString());
+
                         
-
-
 
                         if (doublestop == 0)
                         {
                             doublestop++;
 
                             Console.WriteLine("Current weather:");
-                            showweather(dynamicresponse.response.ob.weather, dynamicresponse.response.ob.tempC, dynamicresponse.response.place.city);
-
+                            showweather(Convert.ToString(dynamicresponse.response.ob.weather), Convert.ToString(dynamicresponse.response.ob.tempC), Convert.ToString(dynamicresponse.response.place.city));
                         }       
                     }
 
@@ -97,7 +94,7 @@ namespace weathercli
                         doublestop++;
 
                         Console.WriteLine("Current weather:");
-                        showweather(dynamicresponse.response.ob.weather, dynamicresponse.response.ob.tempC, dynamicresponse.response.place.city);
+                        showweather(Convert.ToString(dynamicresponse.response.ob.weather), Convert.ToString(dynamicresponse.response.ob.tempC), Convert.ToString(dynamicresponse.response.place.city));
 
                     }
                 }
@@ -144,10 +141,19 @@ namespace weathercli
                         doublestop++;
 
                         Console.WriteLine("Current weather:");
-                        showweather(dynamicresponse.response.ob.weather, dynamicresponse.response.ob.tempC, dynamicresponse.response.place.city);
+                        
+                        
+                        try
+                        {
+                            showweather(Convert.ToString(dynamicresponse.response.ob.weather), Convert.ToString(dynamicresponse.response.ob.tempC), Convert.ToString(dynamicresponse.response.place.city));
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Looks like you are out of requests...");
+                        }
 
                     }
-                    }
+                }
             }
         }
     }
