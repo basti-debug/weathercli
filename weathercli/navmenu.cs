@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using weathercli;
+using System.IO;
 
 namespace weathercli
 { 
@@ -23,10 +24,10 @@ namespace weathercli
             Console.WriteLine("");
             selector(0);
 
-            ConsoleKeyInfo keyp;
-            
-            do
-            { 
+            ConsoleKeyInfo keyp; 
+            while (!selected)
+            {
+                
                 keyp = Console.ReadKey(true);
                 
                 switch(keyp.Key)
@@ -44,8 +45,10 @@ namespace weathercli
                             selector(position);
                             position--;
                             selector(position);
+                            
                         }
                     break;
+
                     case ConsoleKey.DownArrow:
                     
                     
@@ -62,20 +65,23 @@ namespace weathercli
                             selector(position);
                         }
                     break;
+
                     case ConsoleKey.Enter:
-                    
+                        
                         Debug.WriteLine("Enter pressed");
-                        selected = true;
+                        Task.Delay(1000);
                         options(position);
+                        selected = true;
+                        
                     break;
 
                     default:
-                    
+                        Debug.WriteLine("YOU BASTARD");
                         break;
                     
                 }
 
-            }while (!selected);
+            }
 
         }
 
@@ -154,7 +160,6 @@ namespace weathercli
                 while (!a)
                 {
                     try
-
                     {
                         Console.WriteLine("Enter the location you want to know the weather from: (city,countrycode)");
                         location = Console.ReadLine();
@@ -173,12 +178,12 @@ namespace weathercli
                     }
                 }
 
-                locationrequest n = new locationrequest();
-                n.geocode(location);
+                Console.WriteLine("changed the location...");
+                Task.Delay(100);
+                Console.Clear();
+                weatherrequest.apirequest(2, location);
 
-                
                 Console.ReadKey();
-           ;
 
             }
 
