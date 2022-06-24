@@ -18,15 +18,13 @@ namespace weathercli
             // switch when network 
             if (net)
             {
+                //get location
                 locationrequest a = new locationrequest();
-                
                 string location = a.getlocation();
 
-                Console.WriteLine(" ");
-                Console.WriteLine("network sucess");
-                Console.WriteLine(location);
+                //use apirequest function 1 to send location to api
                 weatherrequest.apirequest(1,location);
-                Console.ReadKey();
+                Console.WriteLine("");
 
             }
             if (!net)
