@@ -12,7 +12,7 @@ namespace weathercli
     {
         public static bool getnetinfo()
         {
-            Debug.WriteLine("network test started...");
+            Debug.WriteLine("\n-networkinfo-  network test started...\n");
             string host = ("www.google.com");  
             
                 bool result = false;
@@ -26,10 +26,10 @@ namespace weathercli
                 }
                 result = true;
                 return result;
-                Debug.WriteLine("device is connected to the internet");
+                Debug.WriteLine("\n-networkinfo-  device is connected to the internet");
             }
             catch {
-                Debug.WriteLine("device is not connected to the internet");
+                Debug.WriteLine("\n-networkinfo-  device is not connected to the internet");
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(@"  
             

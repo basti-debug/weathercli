@@ -15,15 +15,14 @@ namespace weathercli
     {
         static void Main(string[] args)
         {
-            Debug.WriteLine("_-_-_-_-_-_-_-_-_-_-_-_-_-_-STARTING_-_-_-_-_-_-_-_-_-_-_-_-_-_-");
+            Debug.WriteLine("\n-main-  main start");
 
 
-            Console.SetWindowSize(48, 30);
+            Console.SetWindowSize(50,30);
             Console.WriteLine("weathercli V1");
             Console.ForegroundColor = ConsoleColor.White;
 
             string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli";
-            Debug.WriteLine(path);
 
             // creating path for caching
             if (!Directory.Exists(path))

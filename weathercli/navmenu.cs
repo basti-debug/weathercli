@@ -68,7 +68,7 @@ namespace weathercli
 
                     case ConsoleKey.Enter:
                         
-                        Debug.WriteLine("Enter pressed");
+                        Debug.WriteLine("\n-submenu-  Enter pressed");
                         Task.Delay(1000);
                         options(position);
                         selected = true;
@@ -76,7 +76,7 @@ namespace weathercli
                     break;
 
                     default:
-                        Debug.WriteLine("YOU BASTARD");
+                        Debug.WriteLine("\n-submenu- error");
                         break;
                     
                 }

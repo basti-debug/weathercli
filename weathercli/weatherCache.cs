@@ -11,11 +11,11 @@ namespace weathercli
 {
     internal class weatherCache
     {
-        public static bool weatherOld()
+        public static bool weatherage()
         {
             if (weatherAvailable()!=true)
             {
-                Debug.WriteLine("WEATHER WAS NOT AVAILABLE AND GOT OUTPUTTED AS OLD");
+                Debug.WriteLine("\n-cache-  weather isnt available on device -- function returened old\n");
                 return true;
             }
             int weatherdate = JsonConvert.DeserializeObject<dynamic>(readCache()).response.ob.timestamp;
@@ -23,13 +23,13 @@ namespace weathercli
             DateTime currentTime = DateTime.Now;
             if(Convert.ToInt16(currentTime.Subtract(weathertime).TotalMinutes) >= 20)
             {
-                Debug.WriteLine("WEATHERAGE: " + Convert.ToInt16(currentTime.Subtract(weathertime).TotalMinutes));
-                Debug.WriteLine("WEATHER IS OLD");
+                Debug.WriteLine("\n-cache-  weather last updated: " + Convert.ToInt16(currentTime.Subtract(weathertime).TotalMinutes)+ "\n");
+                Debug.WriteLine("\n-cache-  weather is too old\n");
                 return true;
             }
             else
             {
-                Debug.WriteLine("WEATHER IS NOT OLD");
+                Debug.WriteLine("\n-cache-  weather is okay");
                 return false;
             }
         }
@@ -38,27 +38,27 @@ namespace weathercli
             string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli\weather.json";
             string weather = File.ReadAllText(path);
             //var weatherser = JsonConvert.DeserializeObject<dynamic>(weather);
-            Debug.WriteLine("READING CACHE");
+            Debug.WriteLine("\n-cache-  reading out cache\n");
             return weather;
         }
        public static void writeCache(string Datei)
-        {
+        {                                                                                                  
             string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli\weather.json";
             File.WriteAllText(path, Datei);
-            Debug.WriteLine("WRITING CACHE");
+            Debug.WriteLine("\n-cache-  writing json in cache, location: " + path + "\n");
         }
         public static bool weatherAvailable()
         {
             string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli\weather.json";
-            Debug.WriteLine("CHECKING IF WEATHER AVAILABLE");
+            Debug.WriteLine("\n-cache-  checking if weather exists on the device");
             if(File.Exists(path))
             {
-                Debug.WriteLine("--WEATHER IS AVAILABLE");
+                Debug.WriteLine("\n-cache-  weather exists on the device");
                 return true;
             }
             else
             {
-                Debug.WriteLine("--WEATHER IS NOT AVAILABLE");
+                Debug.WriteLine("\n-cache-  weather doesnt exist on device");
                 return false;
             }
         }

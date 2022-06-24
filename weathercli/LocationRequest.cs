@@ -25,13 +25,13 @@ namespace weathercli
 
             public string getlocation()
             {
-                Debug.WriteLine("get location...");
+                Debug.WriteLine("\n-getlocation-  get location...");
                 this.watcher = new GeoCoordinateWatcher();
                 this.watcher.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(watcher_PositionChanged);
                 bool started = this.watcher.TryStart(false, TimeSpan.FromMilliseconds(2000));
                 if (!started)
                 {
-                    Console.WriteLine("GeoCoordinateWatcher timed out on start.");
+                    Console.WriteLine("\n-getlocation-  GeoCoordinateWatcher timed out on start.");
                 }
 
 
@@ -52,8 +52,8 @@ namespace weathercli
                 {
                     Task.Delay(1);
                 }
-
-                Debug.WriteLine("location fetched");
+                
+                Debug.WriteLine("\n-getlocation-  location fetched\n");
                 return location;
             
             } 
