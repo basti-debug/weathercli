@@ -12,7 +12,7 @@
 
 ### Technical Documentation
 
-- [Technologie Stack](./docs/technical/technology-stack.md)
+- [Technologie Stack](./docs/technical/Technology-Stack.md)
 - [Architecture](./docs/technical/Architecture.md)
 
 ## Contributors
