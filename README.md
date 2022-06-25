@@ -2,6 +2,10 @@
 
 **_WeatherCLI_** is a **turnkey** solution for checking the weather and getting forecasts in the commandline. The location of the forecasted region can be typed in manually (for those who are _data-safety-aficionados_), or the application can use your devices **GPS** for accurate location measurements. 
 
+## Download and How to use
+
+https://github.com/basti-debug/weathercli/releases/tag/beta
+
 ## Documentation Overview
 
 ### Project Documentation
