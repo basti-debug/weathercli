@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="UML.cd" />
     <None Include="weathercli_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
