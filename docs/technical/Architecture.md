@@ -1,6 +1,6 @@
 # Architecture
-
-Please provide a high-level overview for your application with a suitable graphic. Use a cenceptual UML class diagram. See [tutorial](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/) (or search your own).
+Class-Diagram:
+![image](https://user-images.githubusercontent.com/42534056/175768523-ba23b9ec-cb7b-4c44-8b6e-4e7c03960d40.png)
 
 ---
 
