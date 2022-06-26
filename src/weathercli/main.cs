@@ -57,7 +57,7 @@ namespace weathercli
                         doublestop++;
 
                         int timestamp = Convert.ToInt32(dynamicresponse.response.obTimestamp);
-                        Console.WriteLine("weather from the " + unix.convertunix(timestamp));
+                        Console.WriteLine("weather from the " + internfunctions.convertunix(timestamp));
 
                         weatherstatus.getvisu(Convert.ToString(dynamicresponse.response.ob.weather));
 

@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Device.Location;
-using Checkboxx;
 using System.Globalization;
 using System.Threading;
 

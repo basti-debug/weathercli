@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Device.Location;
 using System.Globalization;
 using System.IO;
-using Checkboxx;
 using System.Diagnostics;
 
 namespace weathercli
@@ -14,6 +13,7 @@ namespace weathercli
     internal class Program
     {
         public static string path = @"C:\Users\" + Environment.UserName + @"\Documents\weathercli";
+
         static void Main(string[] args)
         {
             Debug.WriteLine("\n-main-  main start");

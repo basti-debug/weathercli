@@ -19,7 +19,7 @@ namespace weathercli
                 return true;
             }
             int weatherdate = JsonConvert.DeserializeObject<dynamic>(readCache()).response.ob.timestamp;
-            DateTime weathertime = unix.convertunix(weatherdate);
+            DateTime weathertime = internfunctions.convertunix(weatherdate);
             DateTime currentTime = DateTime.Now;
             if(Convert.ToInt16(currentTime.Subtract(weathertime).TotalMinutes) >= 20)
             {
